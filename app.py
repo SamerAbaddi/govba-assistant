@@ -2,6 +2,7 @@ import json
 
 import streamlit as st
 
+from comparison_engine import compare_requirements_documents
 from demo_engine import generate_demo_brd
 from document_reader import read_uploaded_file
 from review_engine import review_requirements_document
@@ -93,6 +94,7 @@ with st.sidebar:
     st.markdown("**Available tasks**")
     st.write("• Generate a BRD draft")
     st.write("• Review a BRD or SRS")
+    st.write("• Compare two documents")
 
     st.divider()
 
@@ -119,6 +121,7 @@ task = st.selectbox(
     [
         "Generate a BRD Draft",
         "Review a BRD or SRS",
+        "Compare Two Documents",
     ],
 )
 
@@ -137,100 +140,223 @@ if task == "Review a BRD or SRS":
 # ---------------------------------------------------------
 st.subheader("2. Provide the Source Information")
 
-input_method = st.radio(
-    "Choose how to provide the information:",
-    ["Paste text", "Upload a document"],
-    horizontal=True,
-)
-
 source_text = ""
 source_name = "Manually entered text"
 
+document_a_text = ""
+document_b_text = ""
+document_a_name = "Document A"
+document_b_name = "Document B"
 
-# ---------------------------------------------------------
-# Manual text input
-# ---------------------------------------------------------
-if input_method == "Paste text":
+if task == "Compare Two Documents":
 
-    if task == "Generate a BRD Draft":
-        text_label = (
-            "Paste meeting notes, interview notes, "
-            "or a service description:"
-        )
-        placeholder_text = (
-            "Example: A government entity wants to automate "
-            "a licence-renewal service. Applicants provide "
-            "their identification number, existing licence "
-            "information, and supporting documents..."
-        )
+    comparison_input_method = st.radio(
+        "Choose how to provide both documents:",
+        ["Paste both texts", "Upload two documents"],
+        horizontal=True,
+    )
+
+    if comparison_input_method == "Paste both texts":
+
+        comparison_column_1, comparison_column_2 = st.columns(2)
+
+        with comparison_column_1:
+            document_a_name = st.text_input(
+                "Document A name:",
+                value="BRD",
+            )
+
+            document_a_text = st.text_area(
+                "Paste Document A:",
+                height=280,
+                placeholder=(
+                    "Example: Applicants must provide an "
+                    "identification number..."
+                ),
+            )
+
+        with comparison_column_2:
+            document_b_name = st.text_input(
+                "Document B name:",
+                value="SRS",
+            )
+
+            document_b_text = st.text_area(
+                "Paste Document B:",
+                height=280,
+                placeholder=(
+                    "Example: The applicant shall submit an "
+                    "identification number..."
+                ),
+            )
+
     else:
-        text_label = "Paste the BRD or SRS content to review:"
-        placeholder_text = (
-            "Example: Service Scope: The system will automate "
-            "licence renewal. Applicants submit an identification "
-            "number and proof of payment..."
-        )
 
-    source_text = st.text_area(
-        text_label,
-        height=260,
-        placeholder=placeholder_text,
-    )
+        upload_column_1, upload_column_2 = st.columns(2)
 
-
-# ---------------------------------------------------------
-# Document upload
-# ---------------------------------------------------------
-else:
-
-    uploaded_file = st.file_uploader(
-        "Upload a TXT, DOCX, or text-based PDF document:",
-        type=["txt", "docx", "pdf"],
-        help=(
-            "Scanned image-only PDF files are not supported "
-            "at this stage."
-        ),
-    )
-
-    if uploaded_file is not None:
-
-        try:
-            source_text = read_uploaded_file(uploaded_file)
-            source_name = uploaded_file.name
-
-            st.success(
-                f"Document '{uploaded_file.name}' "
-                "was read successfully."
+        with upload_column_1:
+            uploaded_file_a = st.file_uploader(
+                "Upload Document A:",
+                type=["txt", "docx", "pdf"],
+                key="comparison_file_a",
             )
 
-            st.write(
-                f"Extracted characters: {len(source_text):,}"
+        with upload_column_2:
+            uploaded_file_b = st.file_uploader(
+                "Upload Document B:",
+                type=["txt", "docx", "pdf"],
+                key="comparison_file_b",
             )
+
+        if uploaded_file_a is not None:
+
+            try:
+                document_a_text = read_uploaded_file(
+                    uploaded_file_a
+                )
+                document_a_name = uploaded_file_a.name
+
+                st.success(
+                    f"Document A '{document_a_name}' "
+                    "was read successfully."
+                )
+
+            except ValueError as error:
+                st.error(f"Document A: {error}")
+
+            except Exception as error:
+                st.error(
+                    "Document A could not be read."
+                )
+                st.caption(
+                    f"Technical detail: {error}"
+                )
+
+        if uploaded_file_b is not None:
+
+            try:
+                document_b_text = read_uploaded_file(
+                    uploaded_file_b
+                )
+                document_b_name = uploaded_file_b.name
+
+                st.success(
+                    f"Document B '{document_b_name}' "
+                    "was read successfully."
+                )
+
+            except ValueError as error:
+                st.error(f"Document B: {error}")
+
+            except Exception as error:
+                st.error(
+                    "Document B could not be read."
+                )
+                st.caption(
+                    f"Technical detail: {error}"
+                )
+
+        if document_a_text or document_b_text:
 
             with st.expander(
-                "Preview extracted document text"
+                "Preview extracted comparison texts"
             ):
 
-                preview_text = source_text[:3000]
+                preview_column_1, preview_column_2 = st.columns(2)
 
-                if len(source_text) > 3000:
-                    preview_text += (
-                        "\n\n[Preview shortened. "
-                        "The full text remains available.]"
-                    )
+                with preview_column_1:
+                    st.markdown("**Document A preview**")
+                    st.text(document_a_text[:2000])
 
-                st.text(preview_text)
+                with preview_column_2:
+                    st.markdown("**Document B preview**")
+                    st.text(document_b_text[:2000])
 
-        except ValueError as error:
-            st.error(str(error))
+else:
 
-        except Exception as error:
-            st.error(
-                "The document could not be read. "
-                "Please check the file and try again."
+    input_method = st.radio(
+        "Choose how to provide the information:",
+        ["Paste text", "Upload a document"],
+        horizontal=True,
+    )
+
+    if input_method == "Paste text":
+
+        if task == "Generate a BRD Draft":
+            text_label = (
+                "Paste meeting notes, interview notes, "
+                "or a service description:"
+            )
+            placeholder_text = (
+                "Example: A government entity wants to automate "
+                "a licence-renewal service. Applicants provide "
+                "their identification number, existing licence "
+                "information, and supporting documents..."
+            )
+        else:
+            text_label = "Paste the BRD or SRS content to review:"
+            placeholder_text = (
+                "Example: Service Scope: The system will automate "
+                "licence renewal. Applicants submit an identification "
+                "number and proof of payment..."
             )
 
-            st.caption(f"Technical detail: {error}")
+        source_text = st.text_area(
+            text_label,
+            height=260,
+            placeholder=placeholder_text,
+        )
+
+    else:
+
+        uploaded_file = st.file_uploader(
+            "Upload a TXT, DOCX, or text-based PDF document:",
+            type=["txt", "docx", "pdf"],
+            help=(
+                "Scanned image-only PDF files are not supported "
+                "at this stage."
+            ),
+        )
+
+        if uploaded_file is not None:
+
+            try:
+                source_text = read_uploaded_file(uploaded_file)
+                source_name = uploaded_file.name
+
+                st.success(
+                    f"Document '{uploaded_file.name}' "
+                    "was read successfully."
+                )
+
+                st.write(
+                    f"Extracted characters: {len(source_text):,}"
+                )
+
+                with st.expander(
+                    "Preview extracted document text"
+                ):
+
+                    preview_text = source_text[:3000]
+
+                    if len(source_text) > 3000:
+                        preview_text += (
+                            "\n\n[Preview shortened. "
+                            "The full text remains available.]"
+                        )
+
+                    st.text(preview_text)
+
+            except ValueError as error:
+                st.error(str(error))
+
+            except Exception as error:
+                st.error(
+                    "The document could not be read. "
+                    "Please check the file and try again."
+                )
+
+                st.caption(f"Technical detail: {error}")
 
 
 # ---------------------------------------------------------
@@ -238,11 +364,14 @@ else:
 # ---------------------------------------------------------
 st.subheader("3. Run the Selected Task")
 
-button_label = (
-    "Generate BRD Draft"
-    if task == "Generate a BRD Draft"
-    else f"Review {document_type} Document"
-)
+if task == "Generate a BRD Draft":
+    button_label = "Generate BRD Draft"
+
+elif task == "Review a BRD or SRS":
+    button_label = f"Review {document_type} Document"
+
+else:
+    button_label = "Compare Documents"
 
 if st.button(
     button_label,
@@ -250,7 +379,23 @@ if st.button(
     use_container_width=True,
 ):
 
-    if not source_text.strip():
+    if (
+        task == "Compare Two Documents"
+        and (
+            not document_a_text.strip()
+            or not document_b_text.strip()
+        )
+    ):
+
+        st.warning(
+            "Please provide two readable documents "
+            "before starting the comparison."
+        )
+
+    elif (
+        task != "Compare Two Documents"
+        and not source_text.strip()
+    ):
 
         st.warning(
             "Please paste information or upload "
@@ -449,7 +594,7 @@ if st.button(
 
             st.caption(f"Technical detail: {error}")
 
-    else:
+    elif task == "Review a BRD or SRS":
 
         try:
             review_result = review_requirements_document(
@@ -603,6 +748,227 @@ if st.button(
         except Exception as error:
             st.error(
                 f"The {document_type} review could not be completed."
+            )
+
+            st.caption(f"Technical detail: {error}")
+
+
+    else:
+
+        try:
+            comparison_result = compare_requirements_documents(
+                document_a_text,
+                document_b_text,
+                document_a_name,
+                document_b_name,
+            )
+
+            st.success(
+                "Document comparison completed successfully."
+            )
+
+            st.caption(
+                "This result was generated by the temporary "
+                "rule-based comparison engine."
+            )
+
+            st.markdown(
+                "## Preliminary Document Comparison Report"
+            )
+
+            st.write(
+                f"**Document A:** {document_a_name}"
+            )
+            st.write(
+                f"**Document B:** {document_b_name}"
+            )
+
+            summary = comparison_result["summary"]
+            coverage = comparison_result[
+                "coverage_indicator"
+            ]
+
+            metric_1, metric_2, metric_3, metric_4 = st.columns(4)
+
+            with metric_1:
+                st.metric(
+                    "Coverage Indicator",
+                    f"{coverage}%",
+                )
+
+            with metric_2:
+                st.metric(
+                    "Matches",
+                    summary["matched_count"],
+                )
+
+            with metric_3:
+                st.metric(
+                    "Missing in B",
+                    summary["missing_count"],
+                )
+
+            with metric_4:
+                st.metric(
+                    "Possible Conflicts",
+                    summary["possible_conflict_count"],
+                )
+
+            st.progress(coverage / 100)
+
+            st.info(
+                "The coverage indicator is a prototype measure, "
+                "not an official traceability or compliance score."
+            )
+
+            (
+                comparison_tab_1,
+                comparison_tab_2,
+                comparison_tab_3,
+                comparison_tab_4,
+            ) = st.tabs(
+                [
+                    "Matches",
+                    "Missing and Additional",
+                    "Possible Conflicts",
+                    "Human Review",
+                ]
+            )
+
+            with comparison_tab_1:
+
+                st.markdown("### Matched Items")
+
+                if comparison_result["matched_items"]:
+                    for index, item in enumerate(
+                        comparison_result["matched_items"],
+                        start=1,
+                    ):
+                        st.markdown(
+                            f"**Match {index} — "
+                            f"{item['similarity_score']:.0%} similarity**"
+                        )
+                        st.write(
+                            f"**Document A:** "
+                            f"{item['document_a_item']}"
+                        )
+                        st.write(
+                            f"**Document B:** "
+                            f"{item['document_b_item']}"
+                        )
+                        st.divider()
+                else:
+                    st.write("No full matches detected.")
+
+                st.markdown("### Partial Matches")
+
+                if comparison_result["partial_matches"]:
+                    for index, item in enumerate(
+                        comparison_result["partial_matches"],
+                        start=1,
+                    ):
+                        st.markdown(
+                            f"**Partial match {index} — "
+                            f"{item['similarity_score']:.0%} similarity**"
+                        )
+                        st.write(
+                            f"**Document A:** "
+                            f"{item['document_a_item']}"
+                        )
+                        st.write(
+                            f"**Document B:** "
+                            f"{item['document_b_item']}"
+                        )
+                        st.caption(item["review_note"])
+                        st.divider()
+                else:
+                    st.write("No partial matches detected.")
+
+            with comparison_tab_2:
+
+                missing_column, additional_column = st.columns(2)
+
+                with missing_column:
+                    display_list(
+                        f"Missing from {document_b_name}",
+                        comparison_result[
+                            "missing_in_document_b"
+                        ],
+                    )
+
+                with additional_column:
+                    display_list(
+                        f"Additional in {document_b_name}",
+                        comparison_result[
+                            "additional_in_document_b"
+                        ],
+                    )
+
+            with comparison_tab_3:
+
+                conflicts = comparison_result[
+                    "possible_conflicts"
+                ]
+
+                if conflicts:
+                    for index, conflict in enumerate(
+                        conflicts,
+                        start=1,
+                    ):
+                        st.warning(
+                            f"Possible conflict {index}"
+                        )
+                        st.write(
+                            f"**Document A:** "
+                            f"{conflict['document_a_item']}"
+                        )
+                        st.write(
+                            f"**Document B:** "
+                            f"{conflict['document_b_item']}"
+                        )
+                        st.write(
+                            f"**Reason:** {conflict['reason']}"
+                        )
+                        st.write(
+                            f"**Similarity:** "
+                            f"{conflict['similarity_score']:.0%}"
+                        )
+                        st.divider()
+                else:
+                    st.success(
+                        "No numerical conflicts were detected."
+                    )
+
+            with comparison_tab_4:
+                display_list(
+                    "Human Review Notes",
+                    comparison_result[
+                        "human_review_notes"
+                    ],
+                )
+
+            st.divider()
+
+            comparison_json = json.dumps(
+                comparison_result,
+                indent=2,
+                ensure_ascii=False,
+            )
+
+            st.download_button(
+                label="Download Comparison Result as JSON",
+                data=comparison_json,
+                file_name="GovBA_Document_Comparison.json",
+                mime="application/json",
+                use_container_width=True,
+            )
+
+        except ValueError as error:
+            st.error(str(error))
+
+        except Exception as error:
+            st.error(
+                "The document comparison could not be completed."
             )
 
             st.caption(f"Technical detail: {error}")
