@@ -20,6 +20,41 @@ st.set_page_config(
     layout="wide",
 )
 
+MAX_CHARACTERS_PER_DOCUMENT = 50_000
+
+st.markdown(
+    """
+    <style>
+    .govba-banner {
+        padding: 1.25rem 1.4rem;
+        border: 1px solid rgba(120, 120, 120, 0.25);
+        border-radius: 14px;
+        margin-bottom: 1rem;
+    }
+
+    .govba-banner h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    .govba-banner p {
+        margin: 0.35rem 0 0 0;
+        opacity: 0.82;
+    }
+
+    .govba-badge {
+        display: inline-block;
+        padding: 0.2rem 0.55rem;
+        margin: 0.55rem 0.35rem 0 0;
+        border: 1px solid rgba(120, 120, 120, 0.35);
+        border-radius: 999px;
+        font-size: 0.82rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 def display_list(title: str, items: list[str]) -> None:
     """Display a heading followed by a simple bullet list."""
@@ -64,12 +99,30 @@ def display_review_checklist(checklist: list[dict]) -> None:
 # ---------------------------------------------------------
 # Application heading
 # ---------------------------------------------------------
-st.title("🏛️ GovBA Assistant")
-
-st.write(
-    "AI Support Agent for Business Analysis "
-    "and Government-Service Documentation"
+st.markdown(
+    """
+    <div class="govba-banner">
+        <h1>🏛️ GovBA Assistant</h1>
+        <p>
+            AI-supported business analysis and government-service
+            documentation prototype.
+        </p>
+        <span class="govba-badge">Cloud-based</span>
+        <span class="govba-badge">Human-reviewed</span>
+        <span class="govba-badge">No Ministry integration</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
+
+with st.expander("How this prototype works"):
+    st.write(
+        "1. Select a task. "
+        "2. Paste text or upload supported documents. "
+        "3. Run the rule-based demonstration. "
+        "4. Review the findings. "
+        "5. Download Word or JSON outputs."
+    )
 
 
 # ---------------------------------------------------------
@@ -78,7 +131,7 @@ st.write(
 with st.sidebar:
     st.header("Prototype Status")
 
-    st.success("Level 2 — Multi-Task Demo")
+    st.success("Level 2 — Polished Multi-Task Demo")
 
     st.info(
         "The application currently uses rule-based demo engines. "
@@ -105,6 +158,8 @@ with st.sidebar:
     st.write("• Text-based PDF")
 
     st.divider()
+
+    st.caption("Prototype version: 0.9")
 
     st.warning(
         "All generated outputs require review "
@@ -134,6 +189,23 @@ if task == "Review a BRD or SRS":
         ["BRD", "SRS"],
         horizontal=True,
     )
+
+task_descriptions = {
+    "Generate a BRD Draft": (
+        "Convert meeting notes, interview notes, or a service "
+        "description into a preliminary BRD structure."
+    ),
+    "Review a BRD or SRS": (
+        "Check expected sections, unclear wording, and areas "
+        "that require Business Analyst confirmation."
+    ),
+    "Compare Two Documents": (
+        "Compare two requirements-related documents and identify "
+        "matches, missing items, additions, and possible conflicts."
+    ),
+}
+
+st.info(task_descriptions[task])
 
 
 # ---------------------------------------------------------
@@ -361,6 +433,61 @@ else:
 
 
 # ---------------------------------------------------------
+# Input validation and data confirmation
+# ---------------------------------------------------------
+if task == "Compare Two Documents":
+    document_a_length = len(document_a_text)
+    document_b_length = len(document_b_text)
+
+    if document_a_text or document_b_text:
+        count_column_1, count_column_2 = st.columns(2)
+
+        with count_column_1:
+            st.caption(
+                f"Document A size: {document_a_length:,} characters"
+            )
+
+        with count_column_2:
+            st.caption(
+                f"Document B size: {document_b_length:,} characters"
+            )
+
+    input_too_long = (
+        document_a_length > MAX_CHARACTERS_PER_DOCUMENT
+        or document_b_length > MAX_CHARACTERS_PER_DOCUMENT
+    )
+
+else:
+    source_length = len(source_text)
+
+    if source_text:
+        st.caption(
+            f"Source size: {source_length:,} characters"
+        )
+
+    input_too_long = (
+        source_length > MAX_CHARACTERS_PER_DOCUMENT
+    )
+
+if input_too_long:
+    st.error(
+        "One or more inputs exceed the prototype limit of "
+        f"{MAX_CHARACTERS_PER_DOCUMENT:,} characters. "
+        "Please shorten the document before continuing."
+    )
+
+data_confirmation = st.checkbox(
+    "I confirm that the supplied information is fictional, public, "
+    "anonymized, or approved for use in this prototype."
+)
+
+if not data_confirmation:
+    st.caption(
+        "Confirm the data-use statement to activate the task button."
+    )
+
+
+# ---------------------------------------------------------
 # Run selected task
 # ---------------------------------------------------------
 st.subheader("3. Run the Selected Task")
@@ -378,6 +505,10 @@ if st.button(
     button_label,
     type="primary",
     use_container_width=True,
+    disabled=(
+        not data_confirmation
+        or input_too_long
+    ),
 ):
 
     if (
@@ -1006,6 +1137,6 @@ if st.button(
 st.divider()
 
 st.caption(
-    "Internship prototype — human review is required "
-    "before using any generated output."
+    "GovBA Assistant v0.9 — Internship prototype. "
+    "Human review is required before using any generated output."
 )
