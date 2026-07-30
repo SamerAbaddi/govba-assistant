@@ -3,6 +3,7 @@ import json
 import streamlit as st
 
 from comparison_engine import compare_requirements_documents
+from comparison_word_exporter import create_comparison_word_report
 from demo_engine import generate_demo_brd
 from document_reader import read_uploaded_file
 from review_engine import review_requirements_document
@@ -955,13 +956,38 @@ if st.button(
                 ensure_ascii=False,
             )
 
-            st.download_button(
-                label="Download Comparison Result as JSON",
-                data=comparison_json,
-                file_name="GovBA_Document_Comparison.json",
-                mime="application/json",
-                use_container_width=True,
+            comparison_word_report = (
+                create_comparison_word_report(
+                    comparison_result
+                )
             )
+
+            comparison_download_1, comparison_download_2 = (
+                st.columns(2)
+            )
+
+            with comparison_download_1:
+                st.download_button(
+                    label="Download Word Comparison Report",
+                    data=comparison_word_report,
+                    file_name=(
+                        "GovBA_Document_Comparison.docx"
+                    ),
+                    mime=(
+                        "application/vnd.openxmlformats-officedocument."
+                        "wordprocessingml.document"
+                    ),
+                    use_container_width=True,
+                )
+
+            with comparison_download_2:
+                st.download_button(
+                    label="Download Comparison Result as JSON",
+                    data=comparison_json,
+                    file_name="GovBA_Document_Comparison.json",
+                    mime="application/json",
+                    use_container_width=True,
+                )
 
         except ValueError as error:
             st.error(str(error))
