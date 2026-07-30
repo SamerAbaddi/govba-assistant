@@ -4,7 +4,7 @@ import streamlit as st
 
 from demo_engine import generate_demo_brd
 from document_reader import read_uploaded_file
-
+from word_exporter import create_brd_word_report
 
 # ---------------------------------------------------------
 # Page settings
@@ -344,14 +344,33 @@ if st.button(
                 ensure_ascii=False,
             )
 
-            st.download_button(
-                label="Download Structured Result",
-                data=result_json,
-                file_name="govba_brd_result.json",
-                mime="application/json",
-                use_container_width=True,
+            word_report = create_brd_word_report(
+                result,
+                source_name,
             )
 
+            download_column_1, download_column_2 = st.columns(2)
+
+            with download_column_1:
+                st.download_button(
+                    label="Download Word BRD Report",
+                    data=word_report,
+                    file_name="GovBA_Preliminary_BRD.docx",
+                    mime=(
+                        "application/vnd.openxmlformats-officedocument."
+                        "wordprocessingml.document"
+                    ),
+                    use_container_width=True,
+                )
+
+            with download_column_2:
+                st.download_button(
+                    label="Download Structured JSON",
+                    data=result_json,
+                    file_name="govba_brd_result.json",
+                    mime="application/json",
+                    use_container_width=True,
+                )
         except ValueError as error:
             st.error(str(error))
 
