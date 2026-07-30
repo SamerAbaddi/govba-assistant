@@ -5,6 +5,7 @@ import streamlit as st
 from demo_engine import generate_demo_brd
 from document_reader import read_uploaded_file
 from review_engine import review_requirements_document
+from review_word_exporter import create_review_word_report
 from word_exporter import create_brd_word_report
 
 
@@ -562,15 +563,39 @@ if st.button(
                 ensure_ascii=False,
             )
 
-            st.download_button(
-                label="Download Review Result as JSON",
-                data=review_json,
-                file_name=(
-                    f"GovBA_{document_type}_Review.json"
-                ),
-                mime="application/json",
-                use_container_width=True,
+            review_word_report = create_review_word_report(
+                review_result,
+                source_name,
             )
+
+            review_download_column_1, review_download_column_2 = (
+                st.columns(2)
+            )
+
+            with review_download_column_1:
+                st.download_button(
+                    label="Download Word Review Report",
+                    data=review_word_report,
+                    file_name=(
+                        f"GovBA_{document_type}_Review.docx"
+                    ),
+                    mime=(
+                        "application/vnd.openxmlformats-officedocument."
+                        "wordprocessingml.document"
+                    ),
+                    use_container_width=True,
+                )
+
+            with review_download_column_2:
+                st.download_button(
+                    label="Download Review Result as JSON",
+                    data=review_json,
+                    file_name=(
+                        f"GovBA_{document_type}_Review.json"
+                    ),
+                    mime="application/json",
+                    use_container_width=True,
+                )
 
         except ValueError as error:
             st.error(str(error))
