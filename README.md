@@ -4,6 +4,12 @@ GovBA Assistant is a cloud-ready internship prototype that supports selected Bus
 
 The application is built with Python and Streamlit and currently uses controlled rule-based engines. It does not connect to Ministry systems, email accounts, official government databases, or paid AI APIs.
 
+## Live Prototype
+
+GovBA Assistant is deployed on Streamlit Community Cloud:
+
+[Open GovBA Assistant](https://govba-assistant.streamlit.app/)
+
 Prototype Version
 
 0.12
