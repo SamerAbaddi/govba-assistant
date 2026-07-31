@@ -4,6 +4,7 @@ import streamlit as st
 
 from comparison_engine import compare_requirements_documents
 from comparison_word_exporter import create_comparison_word_report
+from citizen_qa_engine import answer_citizen_question
 from demo_engine import generate_demo_brd
 from document_reader import read_uploaded_file
 from email_summary_engine import summarize_employee_email
@@ -22,6 +23,7 @@ st.set_page_config(
 )
 
 MAX_CHARACTERS_PER_DOCUMENT = 50_000
+MAX_QUESTION_CHARACTERS = 1_000
 
 st.markdown(
     """
@@ -151,6 +153,7 @@ with st.sidebar:
     st.write("• Review a BRD or SRS")
     st.write("• Compare two documents")
     st.write("• Summarize an employee email")
+    st.write("• Answer a citizen question")
 
     st.divider()
 
@@ -161,7 +164,7 @@ with st.sidebar:
 
     st.divider()
 
-    st.caption("Prototype version: 0.10")
+    st.caption("Prototype version: 0.11")
 
     st.warning(
         "All generated outputs require review "
@@ -181,6 +184,7 @@ task = st.selectbox(
         "Review a BRD or SRS",
         "Compare Two Documents",
         "Summarize an Employee Email",
+        "Answer a Citizen Question",
     ],
 )
 
@@ -210,6 +214,10 @@ task_descriptions = {
         "Turn pasted or uploaded email content into short bullets, "
         "action items, deadlines, decisions, and a priority indicator."
     ),
+    "Answer a Citizen Question": (
+        "Answer a citizen question using only supplied public, "
+        "approved, or fictional governmental reference information."
+    ),
 }
 
 st.info(task_descriptions[task])
@@ -227,6 +235,7 @@ document_a_text = ""
 document_b_text = ""
 document_a_name = "Document A"
 document_b_name = "Document B"
+citizen_question = ""
 
 if task == "Compare Two Documents":
 
@@ -352,6 +361,96 @@ if task == "Compare Two Documents":
                     st.markdown("**Document B preview**")
                     st.text(document_b_text[:2000])
 
+elif task == "Answer a Citizen Question":
+
+    st.info(
+        "The answer will be based only on the reference information "
+        "you supply below. The prototype does not browse the internet "
+        "or connect to an official government database."
+    )
+
+    citizen_source_method = st.radio(
+        "Choose how to provide the governmental reference information:",
+        ["Paste reference information", "Upload a reference document"],
+        horizontal=True,
+    )
+
+    if citizen_source_method == "Paste reference information":
+
+        source_text = st.text_area(
+            "Paste the approved, public, or fictional governmental information:",
+            height=280,
+            placeholder=(
+                "Example: Licence renewal requires a valid national "
+                "identification card and proof of payment. The service "
+                "fee is 20 JOD. Processing takes three working days..."
+            ),
+        )
+
+    else:
+
+        uploaded_reference_file = st.file_uploader(
+            "Upload a TXT, DOCX, or text-based PDF reference document:",
+            type=["txt", "docx", "pdf"],
+            key="citizen_reference_file",
+            help=(
+                "Use only public, fictional, anonymized, or approved "
+                "non-confidential information."
+            ),
+        )
+
+        if uploaded_reference_file is not None:
+
+            try:
+                source_text = read_uploaded_file(
+                    uploaded_reference_file
+                )
+                source_name = uploaded_reference_file.name
+
+                st.success(
+                    f"Reference document '{source_name}' "
+                    "was read successfully."
+                )
+
+                st.write(
+                    f"Extracted characters: {len(source_text):,}"
+                )
+
+                with st.expander(
+                    "Preview extracted governmental information"
+                ):
+                    preview_text = source_text[:3000]
+
+                    if len(source_text) > 3000:
+                        preview_text += (
+                            "\n\n[Preview shortened. "
+                            "The full text remains available.]"
+                        )
+
+                    st.text(preview_text)
+
+            except ValueError as error:
+                st.error(str(error))
+
+            except Exception as error:
+                st.error(
+                    "The governmental reference document "
+                    "could not be read."
+                )
+                st.caption(
+                    f"Technical detail: {error}"
+                )
+
+    citizen_question = st.text_area(
+        "Enter the citizen's question:",
+        height=110,
+        max_chars=MAX_QUESTION_CHARACTERS,
+        placeholder=(
+            "Example: What documents are required "
+            "for licence renewal?"
+        ),
+    )
+
 else:
 
     input_method = st.radio(
@@ -475,6 +574,29 @@ if task == "Compare Two Documents":
         or document_b_length > MAX_CHARACTERS_PER_DOCUMENT
     )
 
+elif task == "Answer a Citizen Question":
+    source_length = len(source_text)
+    question_length = len(citizen_question)
+
+    if source_text or citizen_question:
+        count_column_1, count_column_2 = st.columns(2)
+
+        with count_column_1:
+            st.caption(
+                f"Reference information size: "
+                f"{source_length:,} characters"
+            )
+
+        with count_column_2:
+            st.caption(
+                f"Question size: {question_length:,} characters"
+            )
+
+    input_too_long = (
+        source_length > MAX_CHARACTERS_PER_DOCUMENT
+        or question_length > MAX_QUESTION_CHARACTERS
+    )
+
 else:
     source_length = len(source_text)
 
@@ -519,8 +641,11 @@ elif task == "Review a BRD or SRS":
 elif task == "Compare Two Documents":
     button_label = "Compare Documents"
 
-else:
+elif task == "Summarize an Employee Email":
     button_label = "Summarize Employee Email"
+
+else:
+    button_label = "Answer Citizen Question"
 
 if st.button(
     button_label,
@@ -543,6 +668,19 @@ if st.button(
         st.warning(
             "Please provide two readable documents "
             "before starting the comparison."
+        )
+
+    elif (
+        task == "Answer a Citizen Question"
+        and (
+            not source_text.strip()
+            or not citizen_question.strip()
+        )
+    ):
+
+        st.warning(
+            "Please provide readable governmental reference "
+            "information and enter a citizen question."
         )
 
     elif (
@@ -1152,7 +1290,7 @@ if st.button(
             st.caption(f"Technical detail: {error}")
 
 
-    else:
+    elif task == "Summarize an Employee Email":
 
         try:
             email_result = summarize_employee_email(
@@ -1375,12 +1513,248 @@ if st.button(
             st.caption(f"Technical detail: {error}")
 
 
+    else:
+
+        try:
+            citizen_result = answer_citizen_question(
+                source_text,
+                citizen_question,
+            )
+
+            answer_supported = (
+                citizen_result["answer_status"]
+                == "Supported by supplied information"
+            )
+
+            if answer_supported:
+                st.success(
+                    "A source-grounded answer was identified."
+                )
+            else:
+                st.warning(
+                    "A sufficiently supported answer was not found."
+                )
+
+            st.caption(
+                "This response was generated by the temporary "
+                "source-grounded rule-based Q&A engine."
+            )
+
+            st.markdown(
+                "## Preliminary Citizen Question Response"
+            )
+
+            st.write(
+                f"**Reference source:** {source_name}"
+            )
+
+            metric_column_1, metric_column_2 = st.columns(2)
+
+            with metric_column_1:
+                st.metric(
+                    "Answer Status",
+                    citizen_result["answer_status"],
+                )
+
+            with metric_column_2:
+                st.metric(
+                    "Confidence Indicator",
+                    citizen_result["confidence_indicator"],
+                )
+
+            st.markdown("### Citizen Question")
+            st.write(citizen_result["question"])
+
+            st.markdown("### Source-Grounded Answer")
+
+            if answer_supported:
+                st.success(citizen_result["answer"])
+            else:
+                st.warning(citizen_result["answer"])
+
+            (
+                citizen_tab_1,
+                citizen_tab_2,
+                citizen_tab_3,
+            ) = st.tabs(
+                [
+                    "Supporting Information",
+                    "Missing Information",
+                    "Human Review",
+                ]
+            )
+
+            with citizen_tab_1:
+                supporting_passages = citizen_result[
+                    "supporting_passages"
+                ]
+
+                if supporting_passages:
+                    for index, item in enumerate(
+                        supporting_passages,
+                        start=1,
+                    ):
+                        st.markdown(
+                            f"**Supporting passage {index}**"
+                        )
+                        st.write(item["passage"])
+                        st.caption(
+                            f"Prototype relevance score: "
+                            f"{item['relevance_score']:.0%}"
+                        )
+
+                        shared_terms = item.get(
+                            "shared_terms",
+                            [],
+                        )
+
+                        if shared_terms:
+                            st.caption(
+                                "Shared terms: "
+                                + ", ".join(shared_terms)
+                            )
+
+                        st.divider()
+                else:
+                    st.write(
+                        "No sufficiently relevant supporting "
+                        "passage was identified."
+                    )
+
+            with citizen_tab_2:
+                display_list(
+                    "Information Requiring Confirmation",
+                    citizen_result["missing_information"],
+                )
+
+            with citizen_tab_3:
+                display_list(
+                    "Human Review Notes",
+                    citizen_result["human_review_notes"],
+                )
+
+            st.error(
+                "This is not an official government response. "
+                "An authorized employee must verify the source, "
+                "its validity, and the final answer before it is "
+                "shared with a citizen."
+            )
+
+            st.divider()
+
+            citizen_json = json.dumps(
+                citizen_result,
+                indent=2,
+                ensure_ascii=False,
+            )
+
+            citizen_text_lines = [
+                "GovBA Assistant — Preliminary Citizen Response",
+                "",
+                f"Reference source: {source_name}",
+                f"Question: {citizen_result['question']}",
+                f"Status: {citizen_result['answer_status']}",
+                (
+                    "Confidence indicator: "
+                    f"{citizen_result['confidence_indicator']}"
+                ),
+                "",
+                "ANSWER",
+                citizen_result["answer"],
+                "",
+                "SUPPORTING INFORMATION",
+            ]
+
+            if citizen_result["supporting_passages"]:
+                citizen_text_lines.extend(
+                    (
+                        f"- {item['passage']} "
+                        f"(score: {item['relevance_score']:.0%})"
+                    )
+                    for item in citizen_result[
+                        "supporting_passages"
+                    ]
+                )
+            else:
+                citizen_text_lines.append(
+                    "- No sufficiently relevant passage identified."
+                )
+
+            citizen_text_lines.extend(
+                [
+                    "",
+                    "INFORMATION REQUIRING CONFIRMATION",
+                ]
+            )
+
+            if citizen_result["missing_information"]:
+                citizen_text_lines.extend(
+                    f"- {item}"
+                    for item in citizen_result[
+                        "missing_information"
+                    ]
+                )
+            else:
+                citizen_text_lines.append(
+                    "- No specific missing information detected."
+                )
+
+            citizen_text_lines.extend(
+                [
+                    "",
+                    "HUMAN REVIEW NOTES",
+                ]
+            )
+
+            citizen_text_lines.extend(
+                f"- {item}"
+                for item in citizen_result[
+                    "human_review_notes"
+                ]
+            )
+
+            citizen_text_report = "\n".join(
+                citizen_text_lines
+            )
+
+            citizen_download_1, citizen_download_2 = st.columns(2)
+
+            with citizen_download_1:
+                st.download_button(
+                    label="Download Citizen Response as TXT",
+                    data=citizen_text_report,
+                    file_name="GovBA_Citizen_Response.txt",
+                    mime="text/plain",
+                    use_container_width=True,
+                )
+
+            with citizen_download_2:
+                st.download_button(
+                    label="Download Citizen Response as JSON",
+                    data=citizen_json,
+                    file_name="GovBA_Citizen_Response.json",
+                    mime="application/json",
+                    use_container_width=True,
+                )
+
+        except ValueError as error:
+            st.error(str(error))
+
+        except Exception as error:
+            st.error(
+                "The citizen question could not be answered."
+            )
+            st.caption(
+                f"Technical detail: {error}"
+            )
+
+
 # ---------------------------------------------------------
 # Footer
 # ---------------------------------------------------------
 st.divider()
 
 st.caption(
-    "GovBA Assistant v0.10 — Internship prototype. "
+    "GovBA Assistant v0.11 — Internship prototype. "
     "Human review is required before using any generated output."
 )
