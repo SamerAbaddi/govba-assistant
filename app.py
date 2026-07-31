@@ -10,6 +10,10 @@ from document_reader import read_uploaded_file
 from email_summary_engine import summarize_employee_email
 from review_engine import review_requirements_document
 from review_word_exporter import create_review_word_report
+from visualization_engine import (
+    SUPPORTED_CHART_TYPES,
+    create_visualization,
+)
 from word_exporter import create_brd_word_report
 
 
@@ -154,17 +158,19 @@ with st.sidebar:
     st.write("• Compare two documents")
     st.write("• Summarize an employee email")
     st.write("• Answer a citizen question")
+    st.write("• Create a visualization")
 
     st.divider()
 
     st.markdown("**Supported files**")
     st.write("• TXT")
+    st.write("• CSV")
     st.write("• Word DOCX")
     st.write("• Text-based PDF")
 
     st.divider()
 
-    st.caption("Prototype version: 0.11")
+    st.caption("Prototype version: 0.12")
 
     st.warning(
         "All generated outputs require review "
@@ -185,6 +191,7 @@ task = st.selectbox(
         "Compare Two Documents",
         "Summarize an Employee Email",
         "Answer a Citizen Question",
+        "Create a Visualization",
     ],
 )
 
@@ -218,6 +225,10 @@ task_descriptions = {
         "Answer a citizen question using only supplied public, "
         "approved, or fictional governmental reference information."
     ),
+    "Create a Visualization": (
+        "Turn structured data into a bar, line, pie, or Gantt chart "
+        "and download the result as a PNG image."
+    ),
 }
 
 st.info(task_descriptions[task])
@@ -236,6 +247,11 @@ document_b_text = ""
 document_a_name = "Document A"
 document_b_name = "Document B"
 citizen_question = ""
+
+chart_type = "Bar Chart"
+chart_title = ""
+x_axis_label = ""
+y_axis_label = ""
 
 if task == "Compare Two Documents":
 
@@ -451,6 +467,118 @@ elif task == "Answer a Citizen Question":
         ),
     )
 
+elif task == "Create a Visualization":
+
+    st.info(
+        "Provide structured comma-separated data. "
+        "The application will create a chart directly from the "
+        "supplied values without changing or estimating them."
+    )
+
+    chart_type = st.selectbox(
+        "Select the visualization type:",
+        SUPPORTED_CHART_TYPES,
+    )
+
+    if chart_type == "Gantt Chart":
+        st.markdown("**Required Gantt format**")
+        st.code(
+            "Task,Start,End\n"
+            "Requirements,2026-08-01,2026-08-05\n"
+            "Development,2026-08-06,2026-08-15\n"
+            "Testing,2026-08-16,2026-08-20",
+            language="text",
+        )
+        st.caption(
+            "Use YYYY-MM-DD for every start and end date."
+        )
+    else:
+        st.markdown(
+            f"**Required {chart_type.lower()} format**"
+        )
+        st.code(
+            "Department,Requests\n"
+            "Licensing,120\n"
+            "Payments,85\n"
+            "Support,60",
+            language="text",
+        )
+        st.caption(
+            "The first column contains categories and the "
+            "second column contains numeric values."
+        )
+
+    visualization_input_method = st.radio(
+        "Choose how to provide the structured data:",
+        ["Paste structured data", "Upload CSV or TXT"],
+        horizontal=True,
+    )
+
+    if visualization_input_method == "Paste structured data":
+
+        source_text = st.text_area(
+            "Paste the chart data:",
+            height=240,
+            placeholder=(
+                "Department,Requests\n"
+                "Licensing,120\n"
+                "Payments,85\n"
+                "Support,60"
+            ),
+        )
+
+    else:
+
+        uploaded_chart_file = st.file_uploader(
+            "Upload a CSV or TXT data file:",
+            type=["csv", "txt"],
+            key="visualization_data_file",
+        )
+
+        if uploaded_chart_file is not None:
+
+            try:
+                source_text = uploaded_chart_file.getvalue().decode(
+                    "utf-8-sig"
+                )
+                source_name = uploaded_chart_file.name
+
+                st.success(
+                    f"Data file '{source_name}' "
+                    "was read successfully."
+                )
+
+                with st.expander("Preview uploaded data"):
+                    st.text(source_text[:3000])
+
+            except UnicodeDecodeError:
+                st.error(
+                    "The uploaded file could not be decoded. "
+                    "Save it as a UTF-8 CSV or TXT file and try again."
+                )
+
+    chart_title = st.text_input(
+        "Chart title:",
+        placeholder=(
+            "Example: Service Requests by Department"
+            if chart_type != "Gantt Chart"
+            else "Example: GovBA Implementation Plan"
+        ),
+    )
+
+    if chart_type != "Gantt Chart":
+        label_column_1, label_column_2 = st.columns(2)
+
+        with label_column_1:
+            x_axis_label = st.text_input(
+                "Horizontal-axis label (optional):"
+            )
+
+        with label_column_2:
+            y_axis_label = st.text_input(
+                "Vertical-axis label (optional):"
+            )
+
 else:
 
     input_method = st.radio(
@@ -644,8 +772,11 @@ elif task == "Compare Two Documents":
 elif task == "Summarize an Employee Email":
     button_label = "Summarize Employee Email"
 
-else:
+elif task == "Answer a Citizen Question":
     button_label = "Answer Citizen Question"
+
+else:
+    button_label = "Create Visualization"
 
 if st.button(
     button_label,
@@ -1513,7 +1644,7 @@ if st.button(
             st.caption(f"Technical detail: {error}")
 
 
-    else:
+    elif task == "Answer a Citizen Question":
 
         try:
             citizen_result = answer_citizen_question(
@@ -1749,12 +1880,116 @@ if st.button(
             )
 
 
+    else:
+
+        try:
+            visualization_result = create_visualization(
+                source_text,
+                chart_type,
+                chart_title,
+                x_axis_label,
+                y_axis_label,
+            )
+
+            png_bytes = visualization_result[
+                "png_bytes"
+            ]
+            metadata = visualization_result[
+                "metadata"
+            ]
+
+            st.success(
+                f"{chart_type} created successfully."
+            )
+
+            st.caption(
+                "The image reflects only the supplied structured data."
+            )
+
+            st.markdown("## Visualization Preview")
+
+            metric_column_1, metric_column_2 = st.columns(2)
+
+            with metric_column_1:
+                st.metric(
+                    "Chart Type",
+                    metadata["chart_type"],
+                )
+
+            with metric_column_2:
+                st.metric(
+                    "Data Rows",
+                    metadata["row_count"],
+                )
+
+            st.image(
+                png_bytes,
+                caption=metadata["title"],
+                use_container_width=True,
+            )
+
+            display_list(
+                "Review Warnings",
+                visualization_result["warnings"],
+            )
+
+            st.divider()
+
+            metadata_json = json.dumps(
+                metadata,
+                indent=2,
+                ensure_ascii=False,
+            )
+
+            safe_chart_name = (
+                chart_type.lower()
+                .replace(" ", "_")
+            )
+
+            visualization_download_1, visualization_download_2 = (
+                st.columns(2)
+            )
+
+            with visualization_download_1:
+                st.download_button(
+                    label="Download Visualization as PNG",
+                    data=png_bytes,
+                    file_name=(
+                        f"GovBA_{safe_chart_name}.png"
+                    ),
+                    mime="image/png",
+                    use_container_width=True,
+                )
+
+            with visualization_download_2:
+                st.download_button(
+                    label="Download Chart Metadata as JSON",
+                    data=metadata_json,
+                    file_name=(
+                        f"GovBA_{safe_chart_name}_metadata.json"
+                    ),
+                    mime="application/json",
+                    use_container_width=True,
+                )
+
+        except ValueError as error:
+            st.error(str(error))
+
+        except Exception as error:
+            st.error(
+                "The visualization could not be created."
+            )
+            st.caption(
+                f"Technical detail: {error}"
+            )
+
+
 # ---------------------------------------------------------
 # Footer
 # ---------------------------------------------------------
 st.divider()
 
 st.caption(
-    "GovBA Assistant v0.11 — Internship prototype. "
+    "GovBA Assistant v0.12 — Internship prototype. "
     "Human review is required before using any generated output."
 )
