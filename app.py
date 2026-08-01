@@ -1,13 +1,15 @@
+import hmac
 import json
 
 import streamlit as st
 
 from comparison_engine import compare_requirements_documents
 from comparison_word_exporter import create_comparison_word_report
+from ai_email_summary_engine import summarize_employee_email_safely
+from ai_provider import get_ai_provider_status
 from citizen_qa_engine import answer_citizen_question
 from demo_engine import generate_demo_brd
 from document_reader import read_uploaded_file
-from email_summary_engine import summarize_employee_email
 from review_engine import review_requirements_document
 from review_word_exporter import create_review_word_report
 from visualization_engine import (
@@ -76,6 +78,55 @@ def display_list(title: str, items: list[str]) -> None:
         st.markdown(f"- {item}")
 
 
+def get_app_secret(
+    name: str,
+    default=None,
+):
+    """Read one application secret without exposing its value."""
+
+    try:
+        value = st.secrets.get(name, default)
+    except Exception:
+        return default
+
+    return value
+
+
+def get_positive_int_secret(
+    name: str,
+    default: int,
+) -> int:
+    """Read a positive integer secret safely."""
+
+    value = get_app_secret(name, default)
+
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError):
+        return default
+
+    return parsed if parsed > 0 else default
+
+
+def access_code_is_valid(
+    supplied_code: str,
+    configured_code: str,
+) -> bool:
+    """Compare access codes without exposing either value."""
+
+    if not supplied_code or not configured_code:
+        return False
+
+    return hmac.compare_digest(
+        supplied_code,
+        configured_code,
+    )
+
+
+if "ai_email_request_count" not in st.session_state:
+    st.session_state.ai_email_request_count = 0
+
+
 def display_review_checklist(checklist: list[dict]) -> None:
     """Display the document-review checklist as a clear table."""
 
@@ -126,10 +177,31 @@ with st.expander("How this prototype works"):
     st.write(
         "1. Select a task. "
         "2. Paste text or upload supported documents. "
-        "3. Run the rule-based demonstration. "
+        "3. Run the selected processing mode. "
         "4. Review the findings. "
         "5. Download Word or JSON outputs."
     )
+
+
+# ---------------------------------------------------------
+# AI pilot configuration
+# ---------------------------------------------------------
+ai_provider_status = get_ai_provider_status()
+
+configured_ai_access_code = str(
+    get_app_secret(
+        "AI_ACCESS_CODE",
+        "",
+    )
+).strip()
+
+max_ai_requests_per_session = get_positive_int_secret(
+    "MAX_AI_REQUESTS_PER_SESSION",
+    5,
+)
+
+email_processing_mode = "Rule-based only"
+email_access_code = ""
 
 
 # ---------------------------------------------------------
@@ -140,10 +212,16 @@ with st.sidebar:
 
     st.success("Level 2 — Polished Multi-Task Demo")
 
-    st.info(
-        "The application currently uses rule-based demo engines. "
-        "The AI connection will be added later."
-    )
+    if ai_provider_status["ready"]:
+        st.success(
+            "OpenAI email pilot is ready. "
+            "Other tasks remain rule-based."
+        )
+    else:
+        st.info(
+            "Rule-based mode is active. "
+            "OpenAI email processing is unavailable or disabled."
+        )
 
     st.markdown(
         "**Data rule:** Use only fictional, public, "
@@ -170,7 +248,7 @@ with st.sidebar:
 
     st.divider()
 
-    st.caption("Prototype version: 0.12")
+    st.caption("Phase 2 pilot version: 0.20")
 
     st.warning(
         "All generated outputs require review "
@@ -677,6 +755,60 @@ else:
                 st.caption(f"Technical detail: {error}")
 
 
+if task == "Summarize an Employee Email":
+
+    st.markdown("### Email Processing Mode")
+
+    processing_options = ["Rule-based only"]
+
+    if ai_provider_status["ready"]:
+        processing_options.insert(
+            0,
+            "AI-enhanced (protected)",
+        )
+
+    email_processing_mode = st.radio(
+        "Choose how this email should be summarized:",
+        processing_options,
+        horizontal=True,
+    )
+
+    if email_processing_mode == "AI-enhanced (protected)":
+
+        st.warning(
+            "AI mode sends the supplied email text to the configured "
+            "OpenAI API. Use only fictional, anonymized, public, or "
+            "explicitly approved non-confidential email content."
+        )
+
+        email_access_code = st.text_input(
+            "Enter the private AI access code:",
+            type="password",
+            help=(
+                "The access code protects paid API use. "
+                "It is not displayed or stored in the output."
+            ),
+        )
+
+        remaining_requests = max(
+            max_ai_requests_per_session
+            - st.session_state.ai_email_request_count,
+            0,
+        )
+
+        st.caption(
+            f"AI requests remaining in this browser session: "
+            f"{remaining_requests} of "
+            f"{max_ai_requests_per_session}"
+        )
+
+    else:
+        st.info(
+            "The existing local rule-based summarizer will be used. "
+            "No external AI request will be made."
+        )
+
+
 # ---------------------------------------------------------
 # Input validation and data confirmation
 # ---------------------------------------------------------
@@ -785,6 +917,12 @@ if st.button(
     disabled=(
         not data_confirmation
         or input_too_long
+        or (
+            task == "Summarize an Employee Email"
+            and email_processing_mode
+            == "AI-enhanced (protected)"
+            and not email_access_code
+        )
     ),
 ):
 
@@ -1424,18 +1562,63 @@ if st.button(
     elif task == "Summarize an Employee Email":
 
         try:
-            email_result = summarize_employee_email(
-                source_text
+            use_ai = (
+                email_processing_mode
+                == "AI-enhanced (protected)"
             )
 
-            st.success(
-                "Employee email summarized successfully."
+            if use_ai:
+
+                if not configured_ai_access_code:
+                    raise PermissionError(
+                        "AI access is not configured."
+                    )
+
+                if not access_code_is_valid(
+                    email_access_code,
+                    configured_ai_access_code,
+                ):
+                    raise PermissionError(
+                        "The AI access code is incorrect."
+                    )
+
+                if (
+                    st.session_state.ai_email_request_count
+                    >= max_ai_requests_per_session
+                ):
+                    raise PermissionError(
+                        "The AI request limit for this browser "
+                        "session has been reached."
+                    )
+
+            email_result = summarize_employee_email_safely(
+                source_text,
+                use_ai=use_ai,
             )
+
+            if email_result["ai_attempted"]:
+                st.session_state.ai_email_request_count += 1
+
+            if email_result["processing_mode"] == "AI-enhanced":
+                st.success(
+                    "Employee email summarized with OpenAI."
+                )
+            else:
+                st.success(
+                    "Employee email summarized with the "
+                    "rule-based fallback."
+                )
 
             st.caption(
-                "This result was generated by the temporary "
-                "rule-based email-summary engine."
+                f"Processing mode: "
+                f"{email_result['processing_mode']}"
             )
+
+            if email_result.get("fallback_reason"):
+                st.info(
+                    "Fallback reason: "
+                    f"{email_result['fallback_reason']}"
+                )
 
             st.markdown(
                 "## Preliminary Employee Email Summary"
@@ -1486,6 +1669,32 @@ if st.button(
                     "Detected Deadlines",
                     deadline_count,
                 )
+
+            if email_result.get("ai_metadata"):
+                with st.expander("AI request details"):
+                    metadata = email_result["ai_metadata"]
+
+                    st.write(
+                        f"**Provider:** "
+                        f"{metadata.get('provider', 'Requires confirmation')}"
+                    )
+                    st.write(
+                        f"**Model:** "
+                        f"{metadata.get('model', 'Requires confirmation')}"
+                    )
+                    st.write(
+                        f"**Response status:** "
+                        f"{metadata.get('response_status', 'Requires confirmation')}"
+                    )
+
+                    if metadata.get("usage"):
+                        st.json(metadata["usage"])
+
+                    st.caption(
+                        f"Session AI request count: "
+                        f"{st.session_state.ai_email_request_count} "
+                        f"of {max_ai_requests_per_session}"
+                    )
 
             email_tab_1, email_tab_2, email_tab_3, email_tab_4 = (
                 st.tabs(
@@ -1632,6 +1841,12 @@ if st.button(
                     mime="application/json",
                     use_container_width=True,
                 )
+
+        except PermissionError as error:
+            st.error(str(error))
+            st.caption(
+                "No AI request was made."
+            )
 
         except ValueError as error:
             st.error(str(error))
@@ -1990,6 +2205,6 @@ if st.button(
 st.divider()
 
 st.caption(
-    "GovBA Assistant v0.12 — Internship prototype. "
+    "GovBA Assistant Phase 2 v0.20 — AI email pilot. "
     "Human review is required before using any generated output."
 )
