@@ -11,78 +11,47 @@ GovBA Assistant is deployed on Streamlit Community Cloud:
 [Open GovBA Assistant](https://govba-assistant.streamlit.app/)
 
 Prototype Version
-
 0.12
 
 Main Functions
-
-Generate a BRD Draft
-
-Converts service descriptions, meeting notes, or interview notes into a preliminary Business Requirements Document structure.
-
-Exports results as Word and JSON.
-
-Review a BRD or SRS
-
-Checks expected sections, missing content, vague wording, and areas requiring Business Analyst confirmation.
-
-Exports review results as Word and JSON.
-
-Compare Two Documents
-
-Compares two requirements-related documents.
-
-Identifies matches, partial matches, missing items, additional items, and possible numerical conflicts.
-
-Exports results as Word and JSON.
-
-Summarize an Employee Email
-
-Converts pasted or uploaded email content into short bullets.
-
-Extracts action items, deadlines, decisions, and a priority indicator.
-
-Exports results as TXT and JSON.
-
-Answer a Citizen Question
-
-Answers a question using only supplied public, fictional, anonymized, or approved governmental reference information.
-
-Shows supporting passages and refuses unsupported answers.
-
-Exports results as TXT and JSON.
-
-Create a Visualization
-
-Creates bar, line, pie, and Gantt charts from structured data.
-
-Supports pasted data and CSV/TXT uploads.
-
-Exports charts as PNG and metadata as JSON.
+1. Generate a BRD Draft
+2. Converts service descriptions, meeting notes, or interview notes into a preliminary Business Requirements Document structure.
+3. Exports results as Word and JSON.
+4. Review a BRD or SRS
+5. Checks expected sections, missing content, vague wording, and areas requiring Business Analyst confirmation.
+6. Exports review results as Word and JSON.
+7. Compare Two Documents
+8. Compares two requirements-related documents.
+9. Identifies matches, partial matches, missing items, additional items, and possible numerical conflicts.
+10. Exports results as Word and JSON.
+11. Summarize an Employee Email
+12. Converts pasted or uploaded email content into short bullets.
+13. Extracts action items, deadlines, decisions, and a priority indicator.
+14. Exports results as TXT and JSON.
+15. Answer a Citizen Question
+16. Answers a question using only supplied public, fictional, anonymized, or approved governmental reference information.
+17. Shows supporting passages and refuses unsupported answers.
+18. Exports results as TXT and JSON.
+19. Create a Visualization
+20. Creates bar, line, pie, and Gantt charts from structured data.
+21. Supports pasted data and CSV/TXT uploads.
+22. Exports charts as PNG and metadata as JSON.
 
 Supported Files
+1. TXT
+2. CSV for visualization
+3. DOCX
+4. Text-based PDF
+5. Scanned image-only PDF files are not supported in this prototype.
 
-TXT
-
-CSV for visualization
-
-DOCX
-
-Text-based PDF
-
-Scanned image-only PDF files are not supported in this prototype.
 
 Technology
-
 Python
-
 Streamlit
-
 PyMuPDF
-
 python-docx
-
 Matplotlib
+
 
 Project Structure
 
