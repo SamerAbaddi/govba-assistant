@@ -11,6 +11,13 @@ import os
 from dataclasses import asdict, dataclass
 from typing import Any
 
+from govba.telemetry import (
+    TelemetryEvent,
+    TelemetryTimer,
+    extract_usage,
+    record_event,
+)
+
 
 DEFAULT_MODEL = "gpt-5-mini"
 DEFAULT_MAX_OUTPUT_TOKENS = 900
@@ -248,6 +255,52 @@ def _usage_to_dict(response: Any) -> dict[str, Any] | None:
     }
 
 
+def _record_ai_telemetry_safely(
+    *,
+    timer: TelemetryTimer,
+    status: dict[str, Any],
+    result: dict[str, Any],
+    response: Any = None,
+    error_type: str = "",
+) -> None:
+    """Record provider telemetry without affecting AI behavior."""
+
+    try:
+        latency_ms = timer.stop()
+        usage = extract_usage(response)
+
+        event = TelemetryEvent(
+            task_type="ai_provider_request",
+            language="unknown",
+            mode=str(
+                result.get("mode")
+                or status.get("mode")
+                or "unknown"
+            ),
+            model=str(status.get("model") or ""),
+            latency_ms=latency_ms,
+            input_tokens=usage.input_tokens,
+            output_tokens=usage.output_tokens,
+            total_tokens=usage.total_tokens,
+            cached_input_tokens=usage.cached_input_tokens,
+            reasoning_output_tokens=usage.reasoning_output_tokens,
+            success=(
+                bool(result.get("success"))
+                and not bool(error_type)
+            ),
+            fallback_used=bool(
+                result.get("fallback_required")
+            ),
+            error_type=error_type,
+        )
+
+        record_event(event)
+
+    except Exception:
+        # Observability must never interrupt GovBA.
+        return
+
+
 def request_ai_response(
     instructions: str,
     user_input: str,
@@ -283,11 +336,24 @@ def request_ai_response(
         "error": None,
     }
 
+    timer = TelemetryTimer().start()
+
     if not status["ready"]:
         result["error"] = status["message"]
+
+        _record_ai_telemetry_safely(
+            timer=timer,
+            status=status,
+            result=result,
+            error_type="ProviderNotReady",
+        )
+
         return result
 
     api_key = _read_setting("OPENAI_API_KEY")
+
+    response: Any = None
+    telemetry_error_type = ""
 
     try:
         from openai import OpenAI
@@ -320,14 +386,24 @@ def request_ai_response(
             store=False,
         )
 
-        response_status = getattr(response, "status", None)
+        response_status = getattr(
+            response,
+            "status",
+            None,
+        )
+
         incomplete_details = getattr(
             response,
             "incomplete_details",
             None,
         )
+
         incomplete_reason = (
-            getattr(incomplete_details, "reason", None)
+            getattr(
+                incomplete_details,
+                "reason",
+                None,
+            )
             if incomplete_details is not None
             else None
         )
@@ -335,7 +411,11 @@ def request_ai_response(
         result.update(
             {
                 "response_status": response_status,
-                "response_id": getattr(response, "id", None),
+                "response_id": getattr(
+                    response,
+                    "id",
+                    None,
+                ),
                 "incomplete_reason": incomplete_reason,
                 "usage": _usage_to_dict(response),
             }
@@ -354,11 +434,14 @@ def request_ai_response(
                     )
                     + " Increase max_output_tokens or reduce reasoning effort."
                 )
+                telemetry_error_type = "IncompleteResponse"
+
             else:
                 result["error"] = (
                     "The AI provider returned no visible text. "
                     f"Response status: {response_status or 'unknown'}."
                 )
+                telemetry_error_type = "EmptyResponse"
 
             return result
 
@@ -378,11 +461,24 @@ def request_ai_response(
         return result
 
     except Exception as error:
+        telemetry_error_type = type(error).__name__
+
         result["error"] = (
             "The AI request could not be completed. "
             f"{type(error).__name__}: {error}"
         )
+
         return result
+
+    finally:
+        _record_ai_telemetry_safely(
+            timer=timer,
+            status=status,
+            result=result,
+            response=response,
+            error_type=telemetry_error_type,
+        )
+
 
 def request_ai_text(
     instructions: str,
