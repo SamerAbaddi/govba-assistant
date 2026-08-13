@@ -59,7 +59,31 @@ from govba.requirements.governed_brd import (
     build_governed_brd,
 )
 
+from govba.requirements.evaluation import (
+    REQUIREMENTS_EVALUATION_ALGORITHM,
+    REQUIREMENTS_EVALUATION_VERSION,
+    RequirementsBenchmarkResult,
+    RequirementsEvaluationCaseResult,
+    RequirementsEvaluationGoldCase,
+    RequirementsEvaluationMetrics,
+    evaluate_requirements_intelligence,
+)
+
 __all__ = [
+    "REQUIREMENTS_EVALUATION_ALGORITHM",
+
+    "REQUIREMENTS_EVALUATION_VERSION",
+
+    "RequirementsBenchmarkResult",
+
+    "RequirementsEvaluationCaseResult",
+
+    "RequirementsEvaluationGoldCase",
+
+    "RequirementsEvaluationMetrics",
+
+    "evaluate_requirements_intelligence",
+
     "GOVERNED_BRD_ALGORITHM",
 
     "GOVERNED_BRD_VERSION",
