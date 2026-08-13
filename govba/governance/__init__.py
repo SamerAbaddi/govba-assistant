@@ -19,6 +19,16 @@ from govba.governance.evaluator import (
     GovernanceAbstentionEvaluator,
     evaluate_governance,
 )
+from govba.governance.security import (
+    SECURITY_CONTRACT_VERSION,
+    SecurityAssessment,
+    SecurityDecision,
+    SecurityFinding,
+    SecurityIssueCode,
+    SecuritySeverity,
+    SecuritySurface,
+    assess_security,
+)
 from govba.governance.verification import (
     GOVERNANCE_VERIFICATION_VERSION,
     GovernanceDecision,
@@ -28,6 +38,22 @@ from govba.governance.verification import (
 
 
 __all__ = [
+    "SECURITY_CONTRACT_VERSION",
+
+    "SecurityAssessment",
+
+    "SecurityDecision",
+
+    "SecurityFinding",
+
+    "SecurityIssueCode",
+
+    "SecuritySeverity",
+
+    "SecuritySurface",
+
+    "assess_security",
+
     "DEFAULT_ABSTENTION_MESSAGE",
 
     "GOVERNED_ANSWER_BUNDLE_VERSION",
