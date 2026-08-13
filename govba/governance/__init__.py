@@ -19,6 +19,14 @@ from govba.governance.evaluator import (
     GovernanceAbstentionEvaluator,
     evaluate_governance,
 )
+from govba.governance.pii import (
+    PII_REDACTION_VERSION,
+    PIIMatch,
+    PIIRedactionResult,
+    PIIType,
+    detect_pii,
+    redact_pii,
+)
 from govba.governance.security import (
     SECURITY_CONTRACT_VERSION,
     SecurityAssessment,
@@ -38,6 +46,18 @@ from govba.governance.verification import (
 
 
 __all__ = [
+    "PII_REDACTION_VERSION",
+
+    "PIIMatch",
+
+    "PIIRedactionResult",
+
+    "PIIType",
+
+    "detect_pii",
+
+    "redact_pii",
+
     "SECURITY_CONTRACT_VERSION",
 
     "SecurityAssessment",
