@@ -10,6 +10,16 @@ from govba.correspondence.actions import (
     CorrespondenceActionOwner,
     extract_correspondence_actions,
 )
+from govba.correspondence.briefing import (
+    CORRESPONDENCE_BRIEFING_VERSION,
+    CorrespondenceBriefingAction,
+    CorrespondenceBriefingDeadline,
+    CorrespondenceBriefingDecision,
+    CorrespondenceBriefingPolicy,
+    CorrespondenceBriefingReason,
+    GovernedCorrespondenceBriefing,
+    build_governed_correspondence_briefing,
+)
 from govba.correspondence.classification import (
     CORRESPONDENCE_CLASSIFICATION_ALGORITHM,
     CORRESPONDENCE_CLASSIFICATION_VERSION,
@@ -44,6 +54,22 @@ from govba.correspondence.contract import (
 
 
 __all__ = [
+    "CORRESPONDENCE_BRIEFING_VERSION",
+
+    "CorrespondenceBriefingAction",
+
+    "CorrespondenceBriefingDeadline",
+
+    "CorrespondenceBriefingDecision",
+
+    "CorrespondenceBriefingPolicy",
+
+    "CorrespondenceBriefingReason",
+
+    "GovernedCorrespondenceBriefing",
+
+    "build_governed_correspondence_briefing",
+
     "CORRESPONDENCE_PRIORITY_ALGORITHM",
 
     "CORRESPONDENCE_PRIORITY_VERSION",
