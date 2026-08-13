@@ -211,6 +211,15 @@ class TestRequirementTypeClassification(
             RequirementType.SECURITY,
         )
 
+    def test_user_interface_is_not_integration(self):
+        self.assertEqual(
+            classify_requirement_type(
+                "The system should provide "
+                "a user-friendly interface."
+            ),
+            RequirementType.FUNCTIONAL,
+        )
+
     def test_integration_type(self):
         self.assertEqual(
             classify_requirement_type(

@@ -173,7 +173,9 @@ _TYPE_PATTERNS = {
         re.compile(
             r"\bintegrat(?:e|es|ed|ion)\b"
             r"|\bapi\b"
-            r"|\binterface\b"
+            r"|\bexternal\s+interface\b"
+            r"|\bintegration\s+interface\b"
+            r"|\binterface\s+with\b"
             r"|\bwebhook\b"
             r"|\bexternal\s+system\b"
             r"|\bthird[- ]party\b",
