@@ -143,6 +143,12 @@ from govba.rag.pipeline import (
     IngestionPipelineError,
     IngestionPipelineResult,
 )
+from govba.rag.temporal import (
+    TEMPORAL_POLICY_SCHEMA_VERSION,
+    TemporalPolicyAssessment,
+    TemporalPolicyState,
+    TemporalReasonCode,
+)
 from govba.rag.retrieval import (
     RetrievalFilters,
     RetrievalQuery,
@@ -151,6 +157,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "TEMPORAL_POLICY_SCHEMA_VERSION",
+
+    "TemporalPolicyAssessment",
+
+    "TemporalPolicyState",
+
+    "TemporalReasonCode",
+
     "GROUNDING_VALIDATOR_VERSION",
 
     "GroundedClaim",
