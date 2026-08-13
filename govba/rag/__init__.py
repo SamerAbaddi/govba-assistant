@@ -156,6 +156,11 @@ from govba.rag.temporal import (
     TemporalPolicyState,
     TemporalReasonCode,
 )
+from govba.rag.temporal_resolver import (
+    TEMPORAL_RESOLVER_VERSION,
+    TemporalResolution,
+    TemporalResolver,
+)
 from govba.rag.retrieval import (
     RetrievalFilters,
     RetrievalQuery,
@@ -164,6 +169,12 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "TEMPORAL_RESOLVER_VERSION",
+
+    "TemporalResolution",
+
+    "TemporalResolver",
+
     "SUPERSESSION_GRAPH_VERSION",
 
     "SupersessionDeclaration",
