@@ -8,6 +8,17 @@ from govba.web.adapter import (
     WebSearchBackend,
     is_official_web_retriever,
 )
+from govba.web.freshness import (
+    WEB_FRESHNESS_VERSION,
+    WebEvidenceControlAssessment,
+    WebEvidenceControlDecision,
+    WebEvidenceControlIssue,
+    WebEvidenceControlIssueCode,
+    WebEvidenceControlPolicy,
+    WebFreshnessState,
+    WebProvenanceState,
+    assess_web_evidence_controls,
+)
 from govba.web.evidence_bridge import (
     WEB_EVIDENCE_BRIDGE_VERSION,
     WebEvidenceBridgeResult,
@@ -24,6 +35,24 @@ from govba.web.contract import (
 
 
 __all__ = [
+    "WEB_FRESHNESS_VERSION",
+
+    "WebEvidenceControlAssessment",
+
+    "WebEvidenceControlDecision",
+
+    "WebEvidenceControlIssue",
+
+    "WebEvidenceControlIssueCode",
+
+    "WebEvidenceControlPolicy",
+
+    "WebFreshnessState",
+
+    "WebProvenanceState",
+
+    "assess_web_evidence_controls",
+
     "WEB_EVIDENCE_BRIDGE_VERSION",
 
     "WebEvidenceBridgeResult",
