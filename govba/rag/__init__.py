@@ -40,6 +40,13 @@ from govba.rag.hybrid import (
     HYBRID_RETRIEVAL_METHOD,
     HybridRetriever,
 )
+from govba.rag.ingestion import (
+    DocumentExtractor,
+    DocumentFormat,
+    ExtractedBlock,
+    ExtractedDocument,
+    IngestionRequest,
+)
 from govba.rag.lexical import (
     LEXICAL_RETRIEVAL_METHOD,
     LexicalRetriever,
@@ -70,6 +77,16 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "DocumentExtractor",
+
+    "DocumentFormat",
+
+    "ExtractedBlock",
+
+    "ExtractedDocument",
+
+    "IngestionRequest",
+
     "EmbeddingProviderStatus",
 
     "get_embedding_provider_status",
