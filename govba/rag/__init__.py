@@ -60,6 +60,11 @@ from govba.rag.models import (
     SourceStatus,
     compute_content_hash,
 )
+from govba.rag.normalization import (
+    TEXT_NORMALIZATION_VERSION,
+    is_normalized_ingested_text,
+    normalize_ingested_text,
+)
 from govba.rag.openai_embeddings import (
     DEFAULT_OPENAI_EMBEDDING_BATCH_SIZE,
     OpenAIEmbeddingProvider,
@@ -77,6 +82,12 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "TEXT_NORMALIZATION_VERSION",
+
+    "is_normalized_ingested_text",
+
+    "normalize_ingested_text",
+
     "DocumentExtractor",
 
     "DocumentFormat",
