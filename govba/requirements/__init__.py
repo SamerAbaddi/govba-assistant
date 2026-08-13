@@ -12,6 +12,18 @@ from govba.requirements.extraction import (
     extract_requirements,
     parse_requirements_source,
 )
+from govba.requirements.acceptance import (
+    ACCEPTANCE_CRITERIA_ALGORITHM,
+    ACCEPTANCE_CRITERIA_VERSION,
+    AcceptanceCriteriaResult,
+    AcceptanceCriteriaStatus,
+    AcceptanceCriterion,
+    AcceptanceCriterionKind,
+    AcceptanceCriterionOrigin,
+    RequirementAcceptanceAssessment,
+    enrich_requirements_with_acceptance_criteria,
+    generate_acceptance_criteria,
+)
 from govba.requirements.contract import (
     REQUIREMENTS_CONTRACT_VERSION,
     BusinessRequirementsDocument,
@@ -25,6 +37,26 @@ from govba.requirements.contract import (
 
 
 __all__ = [
+    "ACCEPTANCE_CRITERIA_ALGORITHM",
+
+    "ACCEPTANCE_CRITERIA_VERSION",
+
+    "AcceptanceCriteriaResult",
+
+    "AcceptanceCriteriaStatus",
+
+    "AcceptanceCriterion",
+
+    "AcceptanceCriterionKind",
+
+    "AcceptanceCriterionOrigin",
+
+    "RequirementAcceptanceAssessment",
+
+    "enrich_requirements_with_acceptance_criteria",
+
+    "generate_acceptance_criteria",
+
     "REQUIREMENT_EXTRACTION_ALGORITHM",
 
     "REQUIREMENT_EXTRACTION_VERSION",
