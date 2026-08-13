@@ -8,6 +8,15 @@ from govba.change.version_matching import (
     build_change_request_from_match,
     match_document_versions,
 )
+from govba.change.briefing import (
+    CHANGE_BRIEFING_VERSION,
+    ChangeBriefingDecision,
+    ChangeBriefingItem,
+    ChangeBriefingReason,
+    ChangeEvidenceReference,
+    GovernedChangeBriefing,
+    build_governed_change_briefing,
+)
 from govba.change.clause_detection import (
     CLAUSE_CHANGE_DETECTION_ALGORITHM,
     CLAUSE_CHANGE_DETECTION_VERSION,
@@ -40,6 +49,20 @@ from govba.change.contract import (
 
 
 __all__ = [
+    "CHANGE_BRIEFING_VERSION",
+
+    "ChangeBriefingDecision",
+
+    "ChangeBriefingItem",
+
+    "ChangeBriefingReason",
+
+    "ChangeEvidenceReference",
+
+    "GovernedChangeBriefing",
+
+    "build_governed_change_briefing",
+
     "CHANGE_SIGNIFICANCE_ALGORITHM",
 
     "CHANGE_SIGNIFICANCE_VERSION",
