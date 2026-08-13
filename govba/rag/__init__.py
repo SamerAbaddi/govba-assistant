@@ -12,11 +12,21 @@ from govba.rag.models import (
     SourceStatus,
     compute_content_hash,
 )
+from govba.rag.retrieval import (
+    RetrievalFilters,
+    RetrievalQuery,
+    RetrievalResult,
+    Retriever,
+)
 
 __all__ = [
     "AuthoritativeSource",
     "DocumentType",
     "EvidenceChunk",
+    "RetrievalFilters",
+    "RetrievalQuery",
+    "RetrievalResult",
+    "Retriever",
     "SourceLanguage",
     "SourceStatus",
     "compute_chunk_hash",
