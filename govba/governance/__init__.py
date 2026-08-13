@@ -35,6 +35,14 @@ from govba.governance.prompt_injection import (
     assess_prompt_injection,
     detect_prompt_injection,
 )
+from govba.governance.source_allowlist import (
+    SOURCE_ALLOWLIST_VERSION,
+    SourceAllowlistPolicy,
+    SourceAllowlistReasonCode,
+    SourceAllowlistResult,
+    assess_authoritative_source,
+    assess_source_url,
+)
 from govba.governance.security import (
     SECURITY_CONTRACT_VERSION,
     SecurityAssessment,
@@ -54,6 +62,18 @@ from govba.governance.verification import (
 
 
 __all__ = [
+    "SOURCE_ALLOWLIST_VERSION",
+
+    "SourceAllowlistPolicy",
+
+    "SourceAllowlistReasonCode",
+
+    "SourceAllowlistResult",
+
+    "assess_authoritative_source",
+
+    "assess_source_url",
+
     "PROMPT_INJECTION_VERSION",
 
     "PromptInjectionAssessment",
