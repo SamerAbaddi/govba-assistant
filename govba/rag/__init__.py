@@ -11,6 +11,13 @@ from govba.rag.benchmarking import (
     RetrieverBenchmarkRun,
     compare_retrievers,
 )
+from govba.rag.chunking import (
+    CHUNKING_VERSION,
+    DEFAULT_OVERLAP_CHARACTERS,
+    DEFAULT_TARGET_CHARACTERS,
+    ChunkingConfig,
+    chunk_extracted_document,
+)
 from govba.rag.embedding_config import (
     DEFAULT_OPENAI_EMBEDDING_MODEL,
     EmbeddingProviderStatus,
@@ -82,6 +89,16 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "CHUNKING_VERSION",
+
+    "DEFAULT_OVERLAP_CHARACTERS",
+
+    "DEFAULT_TARGET_CHARACTERS",
+
+    "ChunkingConfig",
+
+    "chunk_extracted_document",
+
     "TEXT_NORMALIZATION_VERSION",
 
     "is_normalized_ingested_text",
