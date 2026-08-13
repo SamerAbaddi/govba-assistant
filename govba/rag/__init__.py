@@ -11,6 +11,11 @@ from govba.rag.benchmarking import (
     RetrieverBenchmarkRun,
     compare_retrievers,
 )
+from govba.rag.embedding_config import (
+    DEFAULT_OPENAI_EMBEDDING_MODEL,
+    EmbeddingProviderStatus,
+    get_embedding_provider_status,
+)
 from govba.rag.embeddings import (
     EmbeddingProvider,
     EmbeddingVector,
@@ -50,7 +55,6 @@ from govba.rag.models import (
 )
 from govba.rag.openai_embeddings import (
     DEFAULT_OPENAI_EMBEDDING_BATCH_SIZE,
-    DEFAULT_OPENAI_EMBEDDING_MODEL,
     OpenAIEmbeddingProvider,
     OpenAIEmbeddingProviderError,
 )
@@ -66,6 +70,10 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "EmbeddingProviderStatus",
+
+    "get_embedding_provider_status",
+
     "DEFAULT_OPENAI_EMBEDDING_BATCH_SIZE",
 
     "DEFAULT_OPENAI_EMBEDDING_MODEL",

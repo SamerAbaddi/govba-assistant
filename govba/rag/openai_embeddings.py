@@ -14,6 +14,7 @@ from typing import Any
 
 from openai import OpenAI
 
+from govba.rag.embedding_config import DEFAULT_OPENAI_EMBEDDING_MODEL
 from govba.rag.embeddings import (
     EmbeddingVector,
     normalize_embedding_vector,
@@ -24,10 +25,6 @@ from govba.telemetry.recorder import record_event
 from govba.telemetry.timer import TelemetryTimer
 from govba.telemetry.usage import extract_usage
 
-
-DEFAULT_OPENAI_EMBEDDING_MODEL = (
-    "text-embedding-3-small"
-)
 
 DEFAULT_OPENAI_EMBEDDING_BATCH_SIZE = 128
 
