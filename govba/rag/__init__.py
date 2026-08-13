@@ -5,6 +5,16 @@ from govba.rag.evidence import (
     compute_chunk_hash,
     compute_chunk_id,
 )
+from govba.rag.evaluation import (
+    DEFAULT_RETRIEVAL_CUTOFFS,
+    GoldRetrievalCase,
+    RetrievalBenchmarkEvaluation,
+    RetrievalCaseEvaluation,
+    evaluate_benchmark,
+    evaluate_ranked_results,
+    evaluate_retrieval_case,
+    normalize_cutoffs,
+)
 from govba.rag.lexical import (
     LEXICAL_RETRIEVAL_METHOD,
     LexicalRetriever,
@@ -26,6 +36,22 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "DEFAULT_RETRIEVAL_CUTOFFS",
+
+    "GoldRetrievalCase",
+
+    "RetrievalBenchmarkEvaluation",
+
+    "RetrievalCaseEvaluation",
+
+    "evaluate_benchmark",
+
+    "evaluate_ranked_results",
+
+    "evaluate_retrieval_case",
+
+    "normalize_cutoffs",
+
     "tokenize_lexical",
     "normalize_lexical_text",
     "LexicalRetriever",
