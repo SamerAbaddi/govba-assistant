@@ -209,6 +209,15 @@ from govba.rag.query_normalization import (
     normalize_query,
     normalize_query_text,
 )
+from govba.rag.language_parity import (
+    LANGUAGE_PARITY_VERSION,
+    LanguageParityAssessment,
+    LanguageParityDecision,
+    LanguageParityIssue,
+    LanguageParityIssueCode,
+    LanguageParityPolicy,
+    assess_language_parity,
+)
 from govba.rag.language import (
     BILINGUAL_LANGUAGE_VERSION,
     BilingualLanguage,
@@ -220,6 +229,20 @@ from govba.rag.language import (
 )
 
 __all__ = [
+    "LANGUAGE_PARITY_VERSION",
+
+    "LanguageParityAssessment",
+
+    "LanguageParityDecision",
+
+    "LanguageParityIssue",
+
+    "LanguageParityIssueCode",
+
+    "LanguageParityPolicy",
+
+    "assess_language_parity",
+
     "BILINGUAL_EVALUATION_VERSION",
 
     "BilingualBenchmarkResult",
