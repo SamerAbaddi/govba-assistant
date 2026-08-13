@@ -183,7 +183,31 @@ from govba.rag.retrieval import (
     Retriever,
 )
 
+from govba.rag.language import (
+    BILINGUAL_LANGUAGE_VERSION,
+    BilingualLanguage,
+    BilingualQueryRequest,
+    DetectedLanguage,
+    LanguageRoute,
+    LanguageRoutingMode,
+    build_language_route,
+)
+
 __all__ = [
+    "BILINGUAL_LANGUAGE_VERSION",
+
+    "BilingualLanguage",
+
+    "BilingualQueryRequest",
+
+    "DetectedLanguage",
+
+    "LanguageRoute",
+
+    "LanguageRoutingMode",
+
+    "build_language_route",
+
     "TEMPORAL_EVIDENCE_VERSION",
 
     "TemporalEvidenceIntegrationReport",
