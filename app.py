@@ -3,6 +3,12 @@ import json
 
 import streamlit as st
 
+from govba.rag.models import SourceLanguage
+from govba.router import (
+    RoutingRequest,
+    route_capability,
+)
+
 from comparison_engine import compare_requirements_documents
 from comparison_word_exporter import create_comparison_word_report
 from ai_email_summary_engine import summarize_employee_email_safely
@@ -63,6 +69,36 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+
+def v3_is_enabled() -> bool:
+    """Return whether the lightweight GovBA-GAR UI bridge is enabled."""
+
+    import os
+
+    value = os.getenv(
+        "GOVBA_V3_ENABLED",
+        "",
+    ).strip()
+
+    if not value:
+        try:
+            value = str(
+                st.secrets.get(
+                    "GOVBA_V3_ENABLED",
+                    "",
+                )
+            ).strip()
+        except Exception:
+            value = ""
+
+    return value.casefold() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+        "enabled",
+    }
 
 
 def display_list(title: str, items: list[str]) -> None:
@@ -909,6 +945,53 @@ elif task == "Answer a Citizen Question":
 
 else:
     button_label = "Create Visualization"
+
+# ---------------------------------------------------------
+# GovBA-GAR V3 lightweight routing bridge
+# ---------------------------------------------------------
+if v3_is_enabled():
+    try:
+        _v3_source = str(
+            globals().get(
+                "source_text",
+                "",
+            )
+            or ""
+        )
+
+        _v3_route_text = (
+            f"{task}\n{_v3_source}"
+        ).strip()
+
+        _v3_language = (
+            SourceLanguage.ARABIC
+            if any(
+                "\u0600" <= char <= "\u06ff"
+                for char in _v3_route_text
+            )
+            else SourceLanguage.ENGLISH
+        )
+
+        _v3_request = RoutingRequest(
+            text=_v3_route_text,
+            language=_v3_language,
+            trace_id="STREAMLIT-V3",
+        )
+
+        _v3_route = route_capability(
+            _v3_request
+        )
+
+        st.caption(
+            "GovBA-GAR V3 · "
+            f"Route: {_v3_route.capability.value.upper()} · "
+            f"Confidence: {_v3_route.confidence:.0%}"
+        )
+
+    except Exception:
+        # V3 bridge must never break the stable application.
+        pass
+
 
 if st.button(
     button_label,
@@ -2205,6 +2288,6 @@ if st.button(
 st.divider()
 
 st.caption(
-    "GovBA Assistant Phase 2 v0.20 — AI email pilot. "
-    "Human review is required before using any generated output."
+    "GovBA-GAR V3 — Governance-Aware Public-Sector Assistant. "
+    "Human review remains required for governed outputs."
 )
