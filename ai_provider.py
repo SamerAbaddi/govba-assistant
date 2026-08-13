@@ -445,6 +445,18 @@ def request_ai_response(
 
             return result
 
+        parsed_data = None
+
+        if json_schema is not None:
+            try:
+                parsed_data = json.loads(output_text)
+            except json.JSONDecodeError:
+                telemetry_error_type = "JSONDecodeError"
+                result["error"] = (
+                    "The AI provider returned invalid structured JSON."
+                )
+                return result
+
         result.update(
             {
                 "success": True,
@@ -456,7 +468,7 @@ def request_ai_response(
         )
 
         if json_schema is not None:
-            result["data"] = json.loads(output_text)
+            result["data"] = parsed_data
 
         return result
 
