@@ -18,6 +18,12 @@ from govba.rag.chunking import (
     ChunkingConfig,
     chunk_extracted_document,
 )
+from govba.rag.corpus import (
+    CORPUS_MANIFEST_SCHEMA_VERSION,
+    CorpusEntry,
+    CorpusManifest,
+    build_ingestion_request,
+)
 from govba.rag.docx_extractor import (
     DOCX_EXTRACTION_VERSION,
     DOCXExtractionError,
@@ -107,6 +113,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "CORPUS_MANIFEST_SCHEMA_VERSION",
+
+    "CorpusEntry",
+
+    "CorpusManifest",
+
+    "build_ingestion_request",
+
     "INGESTION_PIPELINE_VERSION",
 
     "IngestionPipeline",
