@@ -8,6 +8,11 @@ from govba.governance.eligibility import (
     evaluate_evidence_card,
     evaluate_evidence_cards,
 )
+from govba.governance.evaluator import (
+    GOVERNANCE_EVALUATOR_VERSION,
+    GovernanceAbstentionEvaluator,
+    evaluate_governance,
+)
 from govba.governance.verification import (
     GOVERNANCE_VERIFICATION_VERSION,
     GovernanceDecision,
@@ -17,6 +22,12 @@ from govba.governance.verification import (
 
 
 __all__ = [
+    "GOVERNANCE_EVALUATOR_VERSION",
+
+    "GovernanceAbstentionEvaluator",
+
+    "evaluate_governance",
+
     "EVIDENCE_ELIGIBILITY_VERSION",
 
     "EvidenceEligibilityReason",
