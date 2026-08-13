@@ -143,6 +143,13 @@ from govba.rag.pipeline import (
     IngestionPipelineError,
     IngestionPipelineResult,
 )
+from govba.rag.supersession import (
+    SUPERSESSION_GRAPH_VERSION,
+    SupersessionDeclaration,
+    SupersessionEdge,
+    SupersessionGraph,
+    UnresolvedSupersessionReference,
+)
 from govba.rag.temporal import (
     TEMPORAL_POLICY_SCHEMA_VERSION,
     TemporalPolicyAssessment,
@@ -157,6 +164,16 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "SUPERSESSION_GRAPH_VERSION",
+
+    "SupersessionDeclaration",
+
+    "SupersessionEdge",
+
+    "SupersessionGraph",
+
+    "UnresolvedSupersessionReference",
+
     "TEMPORAL_POLICY_SCHEMA_VERSION",
 
     "TemporalPolicyAssessment",
