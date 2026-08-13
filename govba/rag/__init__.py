@@ -183,6 +183,14 @@ from govba.rag.retrieval import (
     Retriever,
 )
 
+from govba.rag.query_normalization import (
+    QUERY_NORMALIZATION_VERSION,
+    QueryNormalizationResult,
+    count_query_scripts,
+    detect_query_language,
+    normalize_query,
+    normalize_query_text,
+)
 from govba.rag.language import (
     BILINGUAL_LANGUAGE_VERSION,
     BilingualLanguage,
@@ -194,6 +202,18 @@ from govba.rag.language import (
 )
 
 __all__ = [
+    "QUERY_NORMALIZATION_VERSION",
+
+    "QueryNormalizationResult",
+
+    "count_query_scripts",
+
+    "detect_query_language",
+
+    "normalize_query",
+
+    "normalize_query_text",
+
     "BILINGUAL_LANGUAGE_VERSION",
 
     "BilingualLanguage",
