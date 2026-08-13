@@ -33,6 +33,13 @@ from govba.rag.corpus_store import (
     read_manifest,
     write_manifest,
 )
+from govba.rag.corpus_validation import (
+    CORPUS_VALIDATION_VERSION,
+    CorpusEntryValidation,
+    CorpusValidationReport,
+    compute_file_sha256,
+    validate_corpus,
+)
 from govba.rag.docx_extractor import (
     DOCX_EXTRACTION_VERSION,
     DOCXExtractionError,
@@ -122,6 +129,16 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "CORPUS_VALIDATION_VERSION",
+
+    "CorpusEntryValidation",
+
+    "CorpusValidationReport",
+
+    "compute_file_sha256",
+
+    "validate_corpus",
+
     "CORPUS_STORE_VERSION",
 
     "CorpusManifestError",
