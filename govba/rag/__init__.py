@@ -29,6 +29,12 @@ from govba.rag.evaluation import (
     evaluate_retrieval_case,
     normalize_cutoffs,
 )
+from govba.rag.hybrid import (
+    DEFAULT_HYBRID_CANDIDATE_POOL,
+    DEFAULT_RRF_K,
+    HYBRID_RETRIEVAL_METHOD,
+    HybridRetriever,
+)
 from govba.rag.lexical import (
     LEXICAL_RETRIEVAL_METHOD,
     LexicalRetriever,
@@ -54,6 +60,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "DEFAULT_HYBRID_CANDIDATE_POOL",
+
+    "DEFAULT_RRF_K",
+
+    "HYBRID_RETRIEVAL_METHOD",
+
+    "HybridRetriever",
+
     "BENCHMARK_COMPARISON_SCHEMA_VERSION",
 
     "RetrievalBenchmarkComparison",
