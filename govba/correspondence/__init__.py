@@ -20,6 +20,17 @@ from govba.correspondence.classification import (
     detect_intent_signals,
     parse_correspondence,
 )
+from govba.correspondence.priority import (
+    CORRESPONDENCE_PRIORITY_ALGORITHM,
+    CORRESPONDENCE_PRIORITY_VERSION,
+    CorrespondenceDeadline,
+    CorrespondenceDeadlineKind,
+    CorrespondenceDeadlineResult,
+    CorrespondencePriorityAssessment,
+    CorrespondencePriorityReason,
+    assess_correspondence_priority,
+    extract_correspondence_deadlines,
+)
 from govba.correspondence.contract import (
     CORRESPONDENCE_CONTRACT_VERSION,
     CorrespondenceChannel,
@@ -33,6 +44,24 @@ from govba.correspondence.contract import (
 
 
 __all__ = [
+    "CORRESPONDENCE_PRIORITY_ALGORITHM",
+
+    "CORRESPONDENCE_PRIORITY_VERSION",
+
+    "CorrespondenceDeadline",
+
+    "CorrespondenceDeadlineKind",
+
+    "CorrespondenceDeadlineResult",
+
+    "CorrespondencePriorityAssessment",
+
+    "CorrespondencePriorityReason",
+
+    "assess_correspondence_priority",
+
+    "extract_correspondence_deadlines",
+
     "CORRESPONDENCE_ACTION_ALGORITHM",
 
     "CORRESPONDENCE_ACTION_VERSION",
