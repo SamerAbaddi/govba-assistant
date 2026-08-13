@@ -27,6 +27,14 @@ from govba.governance.pii import (
     detect_pii,
     redact_pii,
 )
+from govba.governance.prompt_injection import (
+    PROMPT_INJECTION_VERSION,
+    PromptInjectionAssessment,
+    PromptInjectionSignal,
+    PromptInjectionSignalType,
+    assess_prompt_injection,
+    detect_prompt_injection,
+)
 from govba.governance.security import (
     SECURITY_CONTRACT_VERSION,
     SecurityAssessment,
@@ -46,6 +54,18 @@ from govba.governance.verification import (
 
 
 __all__ = [
+    "PROMPT_INJECTION_VERSION",
+
+    "PromptInjectionAssessment",
+
+    "PromptInjectionSignal",
+
+    "PromptInjectionSignalType",
+
+    "assess_prompt_injection",
+
+    "detect_prompt_injection",
+
     "PII_REDACTION_VERSION",
 
     "PIIMatch",
