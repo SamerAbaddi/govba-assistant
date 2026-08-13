@@ -202,7 +202,3 @@ Direct spreadsheet upload
 More visualization types
 
 Official deployment security review
-
-Project Status
-
-The application is ready for final documentation review and cloud deployment as an internship prototype
