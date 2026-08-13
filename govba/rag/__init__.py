@@ -18,6 +18,12 @@ from govba.rag.chunking import (
     ChunkingConfig,
     chunk_extracted_document,
 )
+from govba.rag.docx_extractor import (
+    DOCX_EXTRACTION_VERSION,
+    DOCXExtractionError,
+    DOCXExtractor,
+    PythonDocxExtractor,
+)
 from govba.rag.embedding_config import (
     DEFAULT_OPENAI_EMBEDDING_MODEL,
     EmbeddingProviderStatus,
@@ -95,6 +101,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "DOCX_EXTRACTION_VERSION",
+
+    "DOCXExtractionError",
+
+    "DOCXExtractor",
+
+    "PythonDocxExtractor",
+
     "PDF_EXTRACTION_VERSION",
 
     "PDFExtractionError",
