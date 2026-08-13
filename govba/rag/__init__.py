@@ -156,6 +156,15 @@ from govba.rag.temporal import (
     TemporalPolicyState,
     TemporalReasonCode,
 )
+from govba.rag.temporal_conflicts import (
+    TEMPORAL_CONFLICT_VERSION,
+    TemporalConflict,
+    TemporalConflictCode,
+    TemporalConflictDecision,
+    TemporalConflictDetector,
+    TemporalConflictReport,
+    detect_temporal_conflicts,
+)
 from govba.rag.temporal_resolver import (
     TEMPORAL_RESOLVER_VERSION,
     TemporalResolution,
@@ -169,6 +178,20 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "TEMPORAL_CONFLICT_VERSION",
+
+    "TemporalConflict",
+
+    "TemporalConflictCode",
+
+    "TemporalConflictDecision",
+
+    "TemporalConflictDetector",
+
+    "TemporalConflictReport",
+
+    "detect_temporal_conflicts",
+
     "TEMPORAL_RESOLVER_VERSION",
 
     "TemporalResolution",
