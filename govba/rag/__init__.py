@@ -24,6 +24,15 @@ from govba.rag.corpus import (
     CorpusManifest,
     build_ingestion_request,
 )
+from govba.rag.corpus_store import (
+    CORPUS_STORE_VERSION,
+    CorpusManifestError,
+    canonical_manifest_json,
+    compute_manifest_hash,
+    manifest_envelope,
+    read_manifest,
+    write_manifest,
+)
 from govba.rag.docx_extractor import (
     DOCX_EXTRACTION_VERSION,
     DOCXExtractionError,
@@ -113,6 +122,20 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "CORPUS_STORE_VERSION",
+
+    "CorpusManifestError",
+
+    "canonical_manifest_json",
+
+    "compute_manifest_hash",
+
+    "manifest_envelope",
+
+    "read_manifest",
+
+    "write_manifest",
+
     "CORPUS_MANIFEST_SCHEMA_VERSION",
 
     "CorpusEntry",
