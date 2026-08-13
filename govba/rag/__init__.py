@@ -183,6 +183,16 @@ from govba.rag.retrieval import (
     Retriever,
 )
 
+from govba.rag.bilingual_evaluation import (
+    BILINGUAL_EVALUATION_VERSION,
+    BilingualBenchmarkResult,
+    BilingualCaseResult,
+    BilingualGoldCase,
+    BilingualLanguageMetrics,
+    BilingualModeComparison,
+    compare_bilingual_retrieval_modes,
+    evaluate_bilingual_retrieval,
+)
 from govba.rag.cross_lingual import (
     CROSS_LINGUAL_RETRIEVAL_METHOD,
     CROSS_LINGUAL_RETRIEVAL_VERSION,
@@ -210,6 +220,22 @@ from govba.rag.language import (
 )
 
 __all__ = [
+    "BILINGUAL_EVALUATION_VERSION",
+
+    "BilingualBenchmarkResult",
+
+    "BilingualCaseResult",
+
+    "BilingualGoldCase",
+
+    "BilingualLanguageMetrics",
+
+    "BilingualModeComparison",
+
+    "compare_bilingual_retrieval_modes",
+
+    "evaluate_bilingual_retrieval",
+
     "CROSS_LINGUAL_RETRIEVAL_METHOD",
 
     "CROSS_LINGUAL_RETRIEVAL_VERSION",
