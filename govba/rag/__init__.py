@@ -81,6 +81,12 @@ from govba.rag.evidence_card import (
     EvidenceTemporalState,
     EvidenceVerificationState,
 )
+from govba.rag.evidence_card_builder import (
+    EVIDENCE_CARD_BUILDER_VERSION,
+    EvidenceCardBuilder,
+    build_evidence_card,
+    build_evidence_cards,
+)
 from govba.rag.ingestion import (
     DocumentExtractor,
     DocumentFormat,
@@ -135,6 +141,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "EVIDENCE_CARD_BUILDER_VERSION",
+
+    "EvidenceCardBuilder",
+
+    "build_evidence_card",
+
+    "build_evidence_cards",
+
     "EVIDENCE_CARD_SCHEMA_VERSION",
 
     "EvidenceCard",
