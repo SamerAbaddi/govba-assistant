@@ -46,8 +46,21 @@ def extract_usage(response: Any) -> UsageMetrics:
     if usage is None:
         return UsageMetrics()
 
+    input_token_value = _read_value(
+        usage,
+        "input_tokens",
+        None,
+    )
+
+    if input_token_value is None:
+        input_token_value = _read_value(
+            usage,
+            "prompt_tokens",
+            0,
+        )
+
     input_tokens = _safe_int(
-        _read_value(usage, "input_tokens", 0)
+        input_token_value
     )
     output_tokens = _safe_int(
         _read_value(usage, "output_tokens", 0)

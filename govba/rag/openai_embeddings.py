@@ -19,6 +19,11 @@ from govba.rag.embeddings import (
     normalize_embedding_vector,
 )
 
+from govba.telemetry.events import TelemetryEvent
+from govba.telemetry.recorder import record_event
+from govba.telemetry.timer import TelemetryTimer
+from govba.telemetry.usage import extract_usage
+
 
 DEFAULT_OPENAI_EMBEDDING_MODEL = (
     "text-embedding-3-small"
@@ -48,6 +53,47 @@ def _require_text(
         )
 
     return value.strip()
+
+
+def _record_embedding_telemetry_safely(
+    *,
+    timer: TelemetryTimer,
+    model: str,
+    task_type: str,
+    response: Any = None,
+    success: bool = False,
+    error_type: str = "",
+) -> None:
+    """Record privacy-safe embedding telemetry without affecting behavior."""
+
+    try:
+        latency_ms = timer.stop()
+        usage = extract_usage(response)
+
+        event = TelemetryEvent(
+            task_type=task_type,
+            language="unknown",
+            mode="embedding",
+            model=model,
+            latency_ms=latency_ms,
+            input_tokens=usage.input_tokens,
+            output_tokens=usage.output_tokens,
+            total_tokens=usage.total_tokens,
+            cached_input_tokens=usage.cached_input_tokens,
+            reasoning_output_tokens=usage.reasoning_output_tokens,
+            success=(
+                bool(success)
+                and not bool(error_type)
+            ),
+            fallback_used=False,
+            error_type=error_type,
+        )
+
+        record_event(event)
+
+    except Exception:
+        # Observability must never interrupt embedding behavior.
+        return
 
 
 class OpenAIEmbeddingProvider:
@@ -137,117 +183,172 @@ class OpenAIEmbeddingProvider:
     def _request_embeddings(
         self,
         texts: tuple[str, ...],
+        *,
+        task_type: str,
     ) -> tuple[
         EmbeddingVector,
         ...
     ]:
-        """Request and validate one provider embedding batch."""
+        """Request, validate, and observe one embedding batch."""
 
-        request: dict[str, Any] = {
-            "model": self._model,
-            "input": list(texts),
-            "encoding_format": "float",
-        }
+        timer = TelemetryTimer().start()
 
-        if self._dimensions is not None:
-            request[
-                "dimensions"
-            ] = self._dimensions
+        response: Any = None
+        telemetry_success = False
+        telemetry_error_type = ""
 
         try:
-            response = (
-                self._client
-                .embeddings
-                .create(
-                    **request
-                )
-            )
-        except Exception as exc:
-            raise OpenAIEmbeddingProviderError(
-                "OpenAI embedding request failed."
-            ) from exc
+            request: dict[str, Any] = {
+                "model": self._model,
+                "input": list(texts),
+                "encoding_format": "float",
+            }
 
-        response_data = tuple(
-            response.data
-        )
-
-        if len(response_data) != len(texts):
-            raise OpenAIEmbeddingProviderError(
-                "Embedding response count did not match "
-                "the request count."
-            )
-
-        indexed_vectors: dict[
-            int,
-            EmbeddingVector,
-        ] = {}
-
-        for item in response_data:
-            index = getattr(
-                item,
-                "index",
-                None,
-            )
-
-            if (
-                not isinstance(index, int)
-                or isinstance(index, bool)
-                or not 0 <= index < len(texts)
-                or index in indexed_vectors
-            ):
-                raise OpenAIEmbeddingProviderError(
-                    "Embedding response contained "
-                    "invalid indices."
-                )
-
-            raw_embedding = getattr(
-                item,
-                "embedding",
-                None,
-            )
+            if self._dimensions is not None:
+                request["dimensions"] = self._dimensions
 
             try:
-                vector = (
-                    normalize_embedding_vector(
-                        raw_embedding,
-                        field_name=(
-                            f"embedding[{index}]"
-                        ),
+                response = (
+                    self._client
+                    .embeddings
+                    .create(
+                        **request
                     )
                 )
-            except (
-                TypeError,
-                ValueError,
-            ) as exc:
+
+            except Exception as exc:
+                telemetry_error_type = (
+                    type(exc).__name__
+                )
+
                 raise OpenAIEmbeddingProviderError(
-                    "Embedding response contained "
-                    "an invalid vector."
+                    "OpenAI embedding request failed."
                 ) from exc
 
-            indexed_vectors[
-                index
-            ] = vector
+            try:
+                response_data = tuple(
+                    response.data
+                )
 
-        expected_indices = set(
-            range(
-                len(texts)
-            )
-        )
+                if len(response_data) != len(texts):
+                    telemetry_error_type = (
+                        "EmbeddingResponseCountMismatch"
+                    )
 
-        if (
-            set(indexed_vectors)
-            != expected_indices
-        ):
-            raise OpenAIEmbeddingProviderError(
-                "Embedding response indices were incomplete."
-            )
+                    raise OpenAIEmbeddingProviderError(
+                        "Embedding response count did not match "
+                        "the request count."
+                    )
 
-        return tuple(
-            indexed_vectors[index]
-            for index in range(
-                len(texts)
+                indexed_vectors: dict[
+                    int,
+                    EmbeddingVector,
+                ] = {}
+
+                for item in response_data:
+                    index = getattr(
+                        item,
+                        "index",
+                        None,
+                    )
+
+                    if (
+                        not isinstance(index, int)
+                        or isinstance(index, bool)
+                        or not 0 <= index < len(texts)
+                        or index in indexed_vectors
+                    ):
+                        telemetry_error_type = (
+                            "InvalidEmbeddingResponseIndex"
+                        )
+
+                        raise OpenAIEmbeddingProviderError(
+                            "Embedding response contained "
+                            "invalid indices."
+                        )
+
+                    raw_embedding = getattr(
+                        item,
+                        "embedding",
+                        None,
+                    )
+
+                    try:
+                        vector = (
+                            normalize_embedding_vector(
+                                raw_embedding,
+                                field_name=(
+                                    f"embedding[{index}]"
+                                ),
+                            )
+                        )
+
+                    except (
+                        TypeError,
+                        ValueError,
+                    ) as exc:
+                        telemetry_error_type = (
+                            "InvalidEmbeddingVector"
+                        )
+
+                        raise OpenAIEmbeddingProviderError(
+                            "Embedding response contained "
+                            "an invalid vector."
+                        ) from exc
+
+                    indexed_vectors[
+                        index
+                    ] = vector
+
+                expected_indices = set(
+                    range(len(texts))
+                )
+
+                if (
+                    set(indexed_vectors)
+                    != expected_indices
+                ):
+                    telemetry_error_type = (
+                        "IncompleteEmbeddingResponse"
+                    )
+
+                    raise OpenAIEmbeddingProviderError(
+                        "Embedding response indices "
+                        "were incomplete."
+                    )
+
+                vectors = tuple(
+                    indexed_vectors[index]
+                    for index in range(
+                        len(texts)
+                    )
+                )
+
+            except OpenAIEmbeddingProviderError:
+                raise
+
+            except Exception as exc:
+                telemetry_error_type = (
+                    type(exc).__name__
+                )
+
+                raise OpenAIEmbeddingProviderError(
+                    "OpenAI embedding response was invalid."
+                ) from exc
+
+            telemetry_success = True
+
+            return vectors
+
+        finally:
+            _record_embedding_telemetry_safely(
+                timer=timer,
+                model=self._model,
+                task_type=task_type,
+                response=response,
+                success=telemetry_success,
+                error_type=telemetry_error_type,
             )
-        )
 
     def embed_documents(
         self,
@@ -297,7 +398,8 @@ class OpenAIEmbeddingProvider:
 
             vectors.extend(
                 self._request_embeddings(
-                    batch
+                    batch,
+                    task_type="embedding_documents_batch",
                 )
             )
 
@@ -321,5 +423,6 @@ class OpenAIEmbeddingProvider:
         return self._request_embeddings(
             (
                 normalized_text,
-            )
+            ),
+            task_type="embedding_query",
         )[0]
