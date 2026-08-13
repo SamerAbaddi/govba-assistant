@@ -311,3 +311,41 @@ def chunk_extracted_document(
     return tuple(
         evidence_chunks
     )
+
+
+
+def split_ingested_text(
+    text: str,
+    config: ChunkingConfig | None = None,
+) -> tuple[str, ...]:
+    """Normalize and deterministically split arbitrary ingested text.
+
+    This public wrapper allows non-file evidence sources, such as
+    controlled official-web retrieval, to reuse the same chunking
+    algorithm as PDF/DOCX ingestion.
+    """
+
+    if config is None:
+        config = ChunkingConfig()
+
+    if not isinstance(
+        config,
+        ChunkingConfig,
+    ):
+        raise TypeError(
+            "config must be a ChunkingConfig."
+        )
+
+    normalized_text = normalize_ingested_text(
+        text
+    )
+
+    if not normalized_text:
+        raise ValueError(
+            "Text produced no normalized content."
+        )
+
+    return _split_normalized_text(
+        normalized_text,
+        config,
+    )
