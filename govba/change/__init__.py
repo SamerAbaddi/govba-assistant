@@ -8,6 +8,16 @@ from govba.change.version_matching import (
     build_change_request_from_match,
     match_document_versions,
 )
+from govba.change.clause_detection import (
+    CLAUSE_CHANGE_DETECTION_ALGORITHM,
+    CLAUSE_CHANGE_DETECTION_VERSION,
+    DEFAULT_MODIFICATION_SIMILARITY_THRESHOLD,
+    ClauseChangeDetectionResult,
+    ClauseChangeMatch,
+    ClauseChangeReason,
+    clause_similarity,
+    detect_clause_changes,
+)
 from govba.change.contract import (
     POLICY_CHANGE_CONTRACT_VERSION,
     PolicyChangeFinding,
@@ -20,6 +30,22 @@ from govba.change.contract import (
 
 
 __all__ = [
+    "CLAUSE_CHANGE_DETECTION_ALGORITHM",
+
+    "CLAUSE_CHANGE_DETECTION_VERSION",
+
+    "DEFAULT_MODIFICATION_SIMILARITY_THRESHOLD",
+
+    "ClauseChangeDetectionResult",
+
+    "ClauseChangeMatch",
+
+    "ClauseChangeReason",
+
+    "clause_similarity",
+
+    "detect_clause_changes",
+
     "DOCUMENT_VERSION_MATCHING_VERSION",
 
     "DocumentVersionMatchDecision",
