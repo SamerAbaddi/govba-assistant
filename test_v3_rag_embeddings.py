@@ -86,7 +86,7 @@ class TestCosineSimilarity(unittest.TestCase):
     """Tests for deterministic semantic vector mathematics."""
 
     def test_identical_vectors_have_similarity_one(self):
-        self.assertEqual(
+        self.assertAlmostEqual(
             cosine_similarity(
                 (
                     1.0,
@@ -98,6 +98,7 @@ class TestCosineSimilarity(unittest.TestCase):
                 ),
             ),
             1.0,
+            places=12,
         )
 
     def test_orthogonal_vectors_have_similarity_zero(self):
