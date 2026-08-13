@@ -87,6 +87,16 @@ from govba.rag.evidence_card_builder import (
     build_evidence_card,
     build_evidence_cards,
 )
+from govba.rag.grounding import (
+    GROUNDING_VALIDATOR_VERSION,
+    GroundedClaim,
+    GroundingDecision,
+    GroundingIssue,
+    GroundingIssueCode,
+    GroundingValidationReport,
+    GroundingValidator,
+    validate_grounding,
+)
 from govba.rag.ingestion import (
     DocumentExtractor,
     DocumentFormat,
@@ -141,6 +151,22 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "GROUNDING_VALIDATOR_VERSION",
+
+    "GroundedClaim",
+
+    "GroundingDecision",
+
+    "GroundingIssue",
+
+    "GroundingIssueCode",
+
+    "GroundingValidationReport",
+
+    "GroundingValidator",
+
+    "validate_grounding",
+
     "EVIDENCE_CARD_BUILDER_VERSION",
 
     "EvidenceCardBuilder",
