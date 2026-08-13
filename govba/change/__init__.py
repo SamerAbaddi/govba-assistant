@@ -18,6 +18,16 @@ from govba.change.clause_detection import (
     clause_similarity,
     detect_clause_changes,
 )
+from govba.change.significance import (
+    CHANGE_SIGNIFICANCE_ALGORITHM,
+    CHANGE_SIGNIFICANCE_VERSION,
+    ChangeSignificanceAssessment,
+    ChangeSignificancePolicy,
+    ChangeSignificanceResult,
+    ChangeSignificanceSignal,
+    classify_change_significance,
+    detect_significance_signals,
+)
 from govba.change.contract import (
     POLICY_CHANGE_CONTRACT_VERSION,
     PolicyChangeFinding,
@@ -30,6 +40,22 @@ from govba.change.contract import (
 
 
 __all__ = [
+    "CHANGE_SIGNIFICANCE_ALGORITHM",
+
+    "CHANGE_SIGNIFICANCE_VERSION",
+
+    "ChangeSignificanceAssessment",
+
+    "ChangeSignificancePolicy",
+
+    "ChangeSignificanceResult",
+
+    "ChangeSignificanceSignal",
+
+    "classify_change_significance",
+
+    "detect_significance_signals",
+
     "CLAUSE_CHANGE_DETECTION_ALGORITHM",
 
     "CLAUSE_CHANGE_DETECTION_VERSION",
