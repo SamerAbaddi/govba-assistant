@@ -8,6 +8,14 @@ from govba.web.adapter import (
     WebSearchBackend,
     is_official_web_retriever,
 )
+from govba.web.evaluation import (
+    CONTROLLED_WEB_EVALUATION_VERSION,
+    ControlledWebBenchmarkResult,
+    ControlledWebCaseResult,
+    ControlledWebGoldCase,
+    ControlledWebMetrics,
+    evaluate_controlled_web,
+)
 from govba.web.freshness import (
     WEB_FRESHNESS_VERSION,
     WebEvidenceControlAssessment,
@@ -35,6 +43,18 @@ from govba.web.contract import (
 
 
 __all__ = [
+    "CONTROLLED_WEB_EVALUATION_VERSION",
+
+    "ControlledWebBenchmarkResult",
+
+    "ControlledWebCaseResult",
+
+    "ControlledWebGoldCase",
+
+    "ControlledWebMetrics",
+
+    "evaluate_controlled_web",
+
     "WEB_FRESHNESS_VERSION",
 
     "WebEvidenceControlAssessment",
