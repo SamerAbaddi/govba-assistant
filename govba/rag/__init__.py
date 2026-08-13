@@ -81,6 +81,12 @@ from govba.rag.semantic import (
     SEMANTIC_RETRIEVAL_METHOD,
     SemanticRetriever,
 )
+from govba.rag.pdf_extractor import (
+    PDF_EXTRACTION_VERSION,
+    PDFExtractionError,
+    PDFExtractor,
+    PyMuPDFExtractor,
+)
 from govba.rag.retrieval import (
     RetrievalFilters,
     RetrievalQuery,
@@ -89,6 +95,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "PDF_EXTRACTION_VERSION",
+
+    "PDFExtractionError",
+
+    "PDFExtractor",
+
+    "PyMuPDFExtractor",
+
     "CHUNKING_VERSION",
 
     "DEFAULT_OVERLAP_CHARACTERS",
