@@ -183,6 +183,14 @@ from govba.rag.retrieval import (
     Retriever,
 )
 
+from govba.rag.cross_lingual import (
+    CROSS_LINGUAL_RETRIEVAL_METHOD,
+    CROSS_LINGUAL_RETRIEVAL_VERSION,
+    DEFAULT_CROSS_LINGUAL_CANDIDATE_POOL,
+    CrossLingualLaneSummary,
+    CrossLingualRetrievalReport,
+    CrossLingualRetriever,
+)
 from govba.rag.query_normalization import (
     QUERY_NORMALIZATION_VERSION,
     QueryNormalizationResult,
@@ -202,6 +210,18 @@ from govba.rag.language import (
 )
 
 __all__ = [
+    "CROSS_LINGUAL_RETRIEVAL_METHOD",
+
+    "CROSS_LINGUAL_RETRIEVAL_VERSION",
+
+    "DEFAULT_CROSS_LINGUAL_CANDIDATE_POOL",
+
+    "CrossLingualLaneSummary",
+
+    "CrossLingualRetrievalReport",
+
+    "CrossLingualRetriever",
+
     "QUERY_NORMALIZATION_VERSION",
 
     "QueryNormalizationResult",
