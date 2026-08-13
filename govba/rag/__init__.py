@@ -93,6 +93,12 @@ from govba.rag.pdf_extractor import (
     PDFExtractor,
     PyMuPDFExtractor,
 )
+from govba.rag.pipeline import (
+    INGESTION_PIPELINE_VERSION,
+    IngestionPipeline,
+    IngestionPipelineError,
+    IngestionPipelineResult,
+)
 from govba.rag.retrieval import (
     RetrievalFilters,
     RetrievalQuery,
@@ -101,6 +107,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "INGESTION_PIPELINE_VERSION",
+
+    "IngestionPipeline",
+
+    "IngestionPipelineError",
+
+    "IngestionPipelineResult",
+
     "DOCX_EXTRACTION_VERSION",
 
     "DOCXExtractionError",
