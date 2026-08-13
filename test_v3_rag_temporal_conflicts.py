@@ -283,6 +283,39 @@ class TestTemporalConflicts(
             TemporalConflictDecision.CLEAR,
         )
 
+    def test_future_document_does_not_create_uncertainty(self):
+        graph = SupersessionGraph(
+            (
+                make_source(
+                    "DOC-FUTURE",
+                    effective_from=date(
+                        2027,
+                        1,
+                        1,
+                    ),
+                ),
+            )
+        )
+
+        report = detect_temporal_conflicts(
+            graph,
+            as_of_date=AS_OF,
+        )
+
+        self.assertEqual(
+            report.decision,
+            TemporalConflictDecision.CLEAR,
+        )
+
+        self.assertEqual(
+            report.insufficient_document_ids,
+            (),
+        )
+
+        self.assertFalse(
+            report.should_abstain
+        )
+
     def test_cycle_is_detected_as_conflict(self):
         graph = SupersessionGraph(
             (

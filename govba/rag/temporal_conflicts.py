@@ -12,6 +12,7 @@ from govba.rag.supersession import (
 )
 from govba.rag.temporal import (
     TemporalPolicyState,
+    TemporalReasonCode,
 )
 from govba.rag.temporal_resolver import (
     TemporalResolution,
@@ -372,14 +373,31 @@ class TemporalConflictReport:
     def insufficient_document_ids(
         self,
     ) -> tuple[str, ...]:
+        uncertainty_reasons = {
+            TemporalReasonCode
+            .MISSING_TEMPORAL_METADATA,
+            TemporalReasonCode
+            .SUPERSESSION_DATE_UNKNOWN,
+        }
+
         return tuple(
             sorted(
                 resolution.document_id
                 for resolution
                 in self.resolutions
-                if resolution.state
-                is TemporalPolicyState
-                .INSUFFICIENT
+                if (
+                    resolution.state
+                    is TemporalPolicyState
+                    .INSUFFICIENT
+                    and any(
+                        reason
+                        in uncertainty_reasons
+                        for reason
+                        in resolution
+                        .assessment
+                        .reason_codes
+                    )
+                )
             )
         )
 
