@@ -49,7 +49,31 @@ from govba.requirements.quality import (
     assess_requirements_quality,
 )
 
+from govba.requirements.governed_brd import (
+    GOVERNED_BRD_ALGORITHM,
+    GOVERNED_BRD_VERSION,
+    GovernedBRDDecision,
+    GovernedBRDReason,
+    GovernedBRDRequirementLink,
+    GovernedBRDResult,
+    build_governed_brd,
+)
+
 __all__ = [
+    "GOVERNED_BRD_ALGORITHM",
+
+    "GOVERNED_BRD_VERSION",
+
+    "GovernedBRDDecision",
+
+    "GovernedBRDReason",
+
+    "GovernedBRDRequirementLink",
+
+    "GovernedBRDResult",
+
+    "build_governed_brd",
+
     "REQUIREMENT_QUALITY_ALGORITHM",
 
     "REQUIREMENT_QUALITY_VERSION",
