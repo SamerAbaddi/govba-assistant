@@ -1,5 +1,15 @@
 """Correspondence intelligence for GovBA-GAR."""
 
+from govba.correspondence.actions import (
+    CORRESPONDENCE_ACTION_ALGORITHM,
+    CORRESPONDENCE_ACTION_VERSION,
+    CorrespondenceAction,
+    CorrespondenceActionExtractionResult,
+    CorrespondenceActionKind,
+    CorrespondenceActionNature,
+    CorrespondenceActionOwner,
+    extract_correspondence_actions,
+)
 from govba.correspondence.classification import (
     CORRESPONDENCE_CLASSIFICATION_ALGORITHM,
     CORRESPONDENCE_CLASSIFICATION_VERSION,
@@ -23,6 +33,22 @@ from govba.correspondence.contract import (
 
 
 __all__ = [
+    "CORRESPONDENCE_ACTION_ALGORITHM",
+
+    "CORRESPONDENCE_ACTION_VERSION",
+
+    "CorrespondenceAction",
+
+    "CorrespondenceActionExtractionResult",
+
+    "CorrespondenceActionKind",
+
+    "CorrespondenceActionNature",
+
+    "CorrespondenceActionOwner",
+
+    "extract_correspondence_actions",
+
     "CORRESPONDENCE_CLASSIFICATION_ALGORITHM",
 
     "CORRESPONDENCE_CLASSIFICATION_VERSION",
