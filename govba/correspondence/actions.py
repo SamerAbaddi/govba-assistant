@@ -62,9 +62,10 @@ class CorrespondenceActionNature(
 _ACTION_PATTERNS = {
     CorrespondenceActionKind.SUBMIT: (
         re.compile(
-            r"\bsubmit(?:ted|ting)?\b"
-            r"|\bfile\b"
-            r"|\blodge\b",
+            r"\bsubmit(?:s|ted|ting)?\b"
+            r"|\blodge(?:s|d|ing)?\b"
+            r"|\bfile\s+(?:an?|the|your|this)\s+"
+            r"(?:application|request|claim|return|form|documents?|report)\b",
             re.IGNORECASE,
         ),
         re.compile(

@@ -167,6 +167,25 @@ class TestCorrespondenceActions(
             ),
         )
 
+    def test_file_noun_does_not_create_submit_action(self):
+        result = (
+            extract_correspondence_actions(
+                request(
+                    "Please review the file."
+                )
+            )
+        )
+
+        self.assertEqual(
+            result.action_count,
+            1,
+        )
+
+        self.assertEqual(
+            result.actions[0].kind,
+            CorrespondenceActionKind.REVIEW,
+        )
+
     def test_multiple_sentences_are_extracted(self):
         result = (
             extract_correspondence_actions(
