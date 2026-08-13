@@ -35,6 +35,15 @@ from govba.governance.prompt_injection import (
     assess_prompt_injection,
     detect_prompt_injection,
 )
+from govba.governance.security_gate import (
+    SECURITY_GATE_VERSION,
+    SecureRetrievalGateResult,
+    SecureTextGateResult,
+    secure_model_output,
+    secure_retrieval_results,
+    secure_text,
+    secure_user_query,
+)
 from govba.governance.source_allowlist import (
     SOURCE_ALLOWLIST_VERSION,
     SourceAllowlistPolicy,
@@ -62,6 +71,20 @@ from govba.governance.verification import (
 
 
 __all__ = [
+    "SECURITY_GATE_VERSION",
+
+    "SecureRetrievalGateResult",
+
+    "SecureTextGateResult",
+
+    "secure_model_output",
+
+    "secure_retrieval_results",
+
+    "secure_text",
+
+    "secure_user_query",
+
     "SOURCE_ALLOWLIST_VERSION",
 
     "SourceAllowlistPolicy",
