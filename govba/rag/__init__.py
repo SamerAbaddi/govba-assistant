@@ -48,6 +48,12 @@ from govba.rag.models import (
     SourceStatus,
     compute_content_hash,
 )
+from govba.rag.openai_embeddings import (
+    DEFAULT_OPENAI_EMBEDDING_BATCH_SIZE,
+    DEFAULT_OPENAI_EMBEDDING_MODEL,
+    OpenAIEmbeddingProvider,
+    OpenAIEmbeddingProviderError,
+)
 from govba.rag.semantic import (
     SEMANTIC_RETRIEVAL_METHOD,
     SemanticRetriever,
@@ -60,6 +66,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "DEFAULT_OPENAI_EMBEDDING_BATCH_SIZE",
+
+    "DEFAULT_OPENAI_EMBEDDING_MODEL",
+
+    "OpenAIEmbeddingProvider",
+
+    "OpenAIEmbeddingProviderError",
+
     "DEFAULT_HYBRID_CANDIDATE_POOL",
 
     "DEFAULT_RRF_K",
