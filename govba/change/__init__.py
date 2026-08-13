@@ -27,6 +27,14 @@ from govba.change.clause_detection import (
     clause_similarity,
     detect_clause_changes,
 )
+from govba.change.evaluation import (
+    CHANGE_INTELLIGENCE_EVALUATION_VERSION,
+    ChangeIntelligenceBenchmarkResult,
+    ChangeIntelligenceCaseResult,
+    ChangeIntelligenceGoldCase,
+    ChangeIntelligenceMetrics,
+    evaluate_change_intelligence,
+)
 from govba.change.significance import (
     CHANGE_SIGNIFICANCE_ALGORITHM,
     CHANGE_SIGNIFICANCE_VERSION,
@@ -49,6 +57,18 @@ from govba.change.contract import (
 
 
 __all__ = [
+    "CHANGE_INTELLIGENCE_EVALUATION_VERSION",
+
+    "ChangeIntelligenceBenchmarkResult",
+
+    "ChangeIntelligenceCaseResult",
+
+    "ChangeIntelligenceGoldCase",
+
+    "ChangeIntelligenceMetrics",
+
+    "evaluate_change_intelligence",
+
     "CHANGE_BRIEFING_VERSION",
 
     "ChangeBriefingDecision",
