@@ -75,6 +75,12 @@ from govba.rag.hybrid import (
     HYBRID_RETRIEVAL_METHOD,
     HybridRetriever,
 )
+from govba.rag.evidence_card import (
+    EVIDENCE_CARD_SCHEMA_VERSION,
+    EvidenceCard,
+    EvidenceTemporalState,
+    EvidenceVerificationState,
+)
 from govba.rag.ingestion import (
     DocumentExtractor,
     DocumentFormat,
@@ -129,6 +135,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "EVIDENCE_CARD_SCHEMA_VERSION",
+
+    "EvidenceCard",
+
+    "EvidenceTemporalState",
+
+    "EvidenceVerificationState",
+
     "CORPUS_VALIDATION_VERSION",
 
     "CorpusEntryValidation",
