@@ -30,6 +30,14 @@ from govba.correspondence.classification import (
     detect_intent_signals,
     parse_correspondence,
 )
+from govba.correspondence.evaluation import (
+    CORRESPONDENCE_EVALUATION_VERSION,
+    CorrespondenceBenchmarkResult,
+    CorrespondenceEvaluationCaseResult,
+    CorrespondenceEvaluationGoldCase,
+    CorrespondenceEvaluationMetrics,
+    evaluate_correspondence_intelligence,
+)
 from govba.correspondence.priority import (
     CORRESPONDENCE_PRIORITY_ALGORITHM,
     CORRESPONDENCE_PRIORITY_VERSION,
@@ -54,6 +62,18 @@ from govba.correspondence.contract import (
 
 
 __all__ = [
+    "CORRESPONDENCE_EVALUATION_VERSION",
+
+    "CorrespondenceBenchmarkResult",
+
+    "CorrespondenceEvaluationCaseResult",
+
+    "CorrespondenceEvaluationGoldCase",
+
+    "CorrespondenceEvaluationMetrics",
+
+    "evaluate_correspondence_intelligence",
+
     "CORRESPONDENCE_BRIEFING_VERSION",
 
     "CorrespondenceBriefingAction",
