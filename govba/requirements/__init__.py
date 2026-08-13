@@ -36,7 +36,40 @@ from govba.requirements.contract import (
 )
 
 
+from govba.requirements.quality import (
+    REQUIREMENT_QUALITY_ALGORITHM,
+    REQUIREMENT_QUALITY_VERSION,
+    RequirementQualityAssessment,
+    RequirementQualityDecision,
+    RequirementQualityFinding,
+    RequirementQualityIssueCode,
+    RequirementQualitySeverity,
+    RequirementsQualityReport,
+    assess_requirement_quality,
+    assess_requirements_quality,
+)
+
 __all__ = [
+    "REQUIREMENT_QUALITY_ALGORITHM",
+
+    "REQUIREMENT_QUALITY_VERSION",
+
+    "RequirementQualityAssessment",
+
+    "RequirementQualityDecision",
+
+    "RequirementQualityFinding",
+
+    "RequirementQualityIssueCode",
+
+    "RequirementQualitySeverity",
+
+    "RequirementsQualityReport",
+
+    "assess_requirement_quality",
+
+    "assess_requirements_quality",
+
     "ACCEPTANCE_CRITERIA_ALGORITHM",
 
     "ACCEPTANCE_CRITERIA_VERSION",
