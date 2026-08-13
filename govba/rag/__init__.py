@@ -5,6 +5,12 @@ from govba.rag.evidence import (
     compute_chunk_hash,
     compute_chunk_id,
 )
+from govba.rag.benchmarking import (
+    BENCHMARK_COMPARISON_SCHEMA_VERSION,
+    RetrievalBenchmarkComparison,
+    RetrieverBenchmarkRun,
+    compare_retrievers,
+)
 from govba.rag.embeddings import (
     EmbeddingProvider,
     EmbeddingVector,
@@ -48,6 +54,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "BENCHMARK_COMPARISON_SCHEMA_VERSION",
+
+    "RetrievalBenchmarkComparison",
+
+    "RetrieverBenchmarkRun",
+
+    "compare_retrievers",
+
     "SEMANTIC_RETRIEVAL_METHOD",
 
     "SemanticRetriever",
