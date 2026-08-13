@@ -5,6 +5,14 @@ from govba.rag.evidence import (
     compute_chunk_hash,
     compute_chunk_id,
 )
+from govba.rag.embeddings import (
+    EmbeddingProvider,
+    EmbeddingVector,
+    cosine_similarity,
+    cosine_to_unit_interval,
+    embedding_norm,
+    normalize_embedding_vector,
+)
 from govba.rag.evaluation import (
     DEFAULT_RETRIEVAL_CUTOFFS,
     GoldRetrievalCase,
@@ -36,6 +44,18 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "EmbeddingProvider",
+
+    "EmbeddingVector",
+
+    "cosine_similarity",
+
+    "cosine_to_unit_interval",
+
+    "embedding_norm",
+
+    "normalize_embedding_vector",
+
     "DEFAULT_RETRIEVAL_CUTOFFS",
 
     "GoldRetrievalCase",
