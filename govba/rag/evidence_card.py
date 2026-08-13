@@ -38,6 +38,7 @@ class EvidenceTemporalState(
     CURRENT = "current"
     SUPERSEDED = "superseded"
     CONFLICTING = "conflicting"
+    INSUFFICIENT = "insufficient"
 
 
 def _optional_text(

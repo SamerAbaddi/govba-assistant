@@ -165,6 +165,12 @@ from govba.rag.temporal_conflicts import (
     TemporalConflictReport,
     detect_temporal_conflicts,
 )
+from govba.rag.temporal_evidence import (
+    TEMPORAL_EVIDENCE_VERSION,
+    TemporalEvidenceIntegrationReport,
+    TemporalEvidenceIntegrator,
+    integrate_temporal_evidence,
+)
 from govba.rag.temporal_resolver import (
     TEMPORAL_RESOLVER_VERSION,
     TemporalResolution,
@@ -178,6 +184,14 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "TEMPORAL_EVIDENCE_VERSION",
+
+    "TemporalEvidenceIntegrationReport",
+
+    "TemporalEvidenceIntegrator",
+
+    "integrate_temporal_evidence",
+
     "TEMPORAL_CONFLICT_VERSION",
 
     "TemporalConflict",
