@@ -441,15 +441,13 @@ if task == "Compare Two Documents":
                 )
 
             except ValueError as error:
-                st.error(f"Document A: {error}")
+                st.error("Document A could not be processed safely.")
 
             except Exception as error:
                 st.error(
                     "Document A could not be read."
                 )
-                st.caption(
-                    f"Technical detail: {error}"
-                )
+                st.caption("Technical details are hidden in the public prototype.")
 
         if uploaded_file_b is not None:
 
@@ -465,15 +463,13 @@ if task == "Compare Two Documents":
                 )
 
             except ValueError as error:
-                st.error(f"Document B: {error}")
+                st.error("Document B could not be processed safely.")
 
             except Exception as error:
                 st.error(
                     "Document B could not be read."
                 )
-                st.caption(
-                    f"Technical detail: {error}"
-                )
+                st.caption("Technical details are hidden in the public prototype.")
 
         if document_a_text or document_b_text:
 
@@ -560,16 +556,14 @@ elif task == "Answer a Citizen Question":
                     st.text(preview_text)
 
             except ValueError as error:
-                st.error(str(error))
+                st.error("The request could not be completed safely.")
 
             except Exception as error:
                 st.error(
                     "The governmental reference document "
                     "could not be read."
                 )
-                st.caption(
-                    f"Technical detail: {error}"
-                )
+                st.caption("Technical details are hidden in the public prototype.")
 
     citizen_question = st.text_area(
         "Enter the citizen's question:",
@@ -780,7 +774,7 @@ else:
                     st.text(preview_text)
 
             except ValueError as error:
-                st.error(str(error))
+                st.error("The request could not be completed safely.")
 
             except Exception as error:
                 st.error(
@@ -788,7 +782,7 @@ else:
                     "Please check the file and try again."
                 )
 
-                st.caption(f"Technical detail: {error}")
+                st.caption("Technical details are hidden in the public prototype.")
 
 
 if task == "Summarize an Employee Email":
@@ -1228,14 +1222,14 @@ if st.button(
                 )
 
         except ValueError as error:
-            st.error(str(error))
+            st.error("The request could not be completed safely.")
 
         except Exception as error:
             st.error(
                 "The BRD could not be generated."
             )
 
-            st.caption(f"Technical detail: {error}")
+            st.caption("Technical details are hidden in the public prototype.")
 
     elif task == "Review a BRD or SRS":
 
@@ -1386,14 +1380,14 @@ if st.button(
                 )
 
         except ValueError as error:
-            st.error(str(error))
+            st.error("The request could not be completed safely.")
 
         except Exception as error:
             st.error(
                 f"The {document_type} review could not be completed."
             )
 
-            st.caption(f"Technical detail: {error}")
+            st.caption("Technical details are hidden in the public prototype.")
 
 
     elif task == "Compare Two Documents":
@@ -1632,14 +1626,14 @@ if st.button(
                 )
 
         except ValueError as error:
-            st.error(str(error))
+            st.error("The request could not be completed safely.")
 
         except Exception as error:
             st.error(
                 "The document comparison could not be completed."
             )
 
-            st.caption(f"Technical detail: {error}")
+            st.caption("Technical details are hidden in the public prototype.")
 
 
     elif task == "Summarize an Employee Email":
@@ -1926,20 +1920,20 @@ if st.button(
                 )
 
         except PermissionError as error:
-            st.error(str(error))
+            st.error("The request could not be completed safely.")
             st.caption(
                 "No AI request was made."
             )
 
         except ValueError as error:
-            st.error(str(error))
+            st.error("The request could not be completed safely.")
 
         except Exception as error:
             st.error(
                 "The employee email could not be summarized."
             )
 
-            st.caption(f"Technical detail: {error}")
+            st.caption("Technical details are hidden in the public prototype.")
 
 
     elif task == "Answer a Citizen Question":
@@ -2167,15 +2161,13 @@ if st.button(
                 )
 
         except ValueError as error:
-            st.error(str(error))
+            st.error("The request could not be completed safely.")
 
         except Exception as error:
             st.error(
                 "The citizen question could not be answered."
             )
-            st.caption(
-                f"Technical detail: {error}"
-            )
+            st.caption("Technical details are hidden in the public prototype.")
 
 
     else:
@@ -2271,15 +2263,13 @@ if st.button(
                 )
 
         except ValueError as error:
-            st.error(str(error))
+            st.error("The request could not be completed safely.")
 
         except Exception as error:
             st.error(
                 "The visualization could not be created."
             )
-            st.caption(
-                f"Technical detail: {error}"
-            )
+            st.caption("Technical details are hidden in the public prototype.")
 
 
 # ---------------------------------------------------------
