@@ -36,6 +36,10 @@ from govba.rag.models import (
     SourceStatus,
     compute_content_hash,
 )
+from govba.rag.semantic import (
+    SEMANTIC_RETRIEVAL_METHOD,
+    SemanticRetriever,
+)
 from govba.rag.retrieval import (
     RetrievalFilters,
     RetrievalQuery,
@@ -44,6 +48,10 @@ from govba.rag.retrieval import (
 )
 
 __all__ = [
+    "SEMANTIC_RETRIEVAL_METHOD",
+
+    "SemanticRetriever",
+
     "EmbeddingProvider",
 
     "EmbeddingVector",
