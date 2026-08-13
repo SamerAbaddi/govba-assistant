@@ -7,9 +7,13 @@ AI is disabled by default. Existing rule-based engines remain the fallback.
 from __future__ import annotations
 
 import json
-import os
 from dataclasses import asdict, dataclass
 from typing import Any
+
+from govba.core.settings import (
+    read_boolean_setting as _read_boolean_setting,
+    read_setting as _read_setting,
+)
 
 from govba.telemetry import (
     TelemetryEvent,
@@ -36,62 +40,6 @@ class AIProviderStatus:
     model: str
     mode: str
     message: str
-
-
-def _read_streamlit_secret(name: str) -> str | None:
-    try:
-        import streamlit as st
-    except ImportError:
-        return None
-
-    try:
-        value = st.secrets.get(name)
-    except Exception:
-        return None
-
-    if value is None:
-        return None
-
-    cleaned = str(value).strip()
-    return cleaned or None
-
-
-def _read_setting(
-    name: str,
-    default: str | None = None,
-) -> str | None:
-    environment_value = os.getenv(name)
-
-    if environment_value is not None:
-        cleaned = environment_value.strip()
-
-        if cleaned:
-            return cleaned
-
-    streamlit_value = _read_streamlit_secret(name)
-
-    if streamlit_value is not None:
-        return streamlit_value
-
-    return default
-
-
-def _read_boolean_setting(
-    name: str,
-    default: bool = False,
-) -> bool:
-    raw_value = _read_setting(name)
-
-    if raw_value is None:
-        return default
-
-    return raw_value.lower() in {
-        "1",
-        "true",
-        "yes",
-        "on",
-        "enabled",
-    }
 
 
 def _sdk_available() -> bool:
