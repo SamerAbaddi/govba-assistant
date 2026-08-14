@@ -1,0 +1,1669 @@
+{
+  "B1": {
+    "arabic": {
+      "case_count": 15,
+      "hit_rate": 0.7333333333333333,
+      "language": "ar",
+      "mean_latency_ms": 0.20272793326512328,
+      "mean_recall": 0.7333333333333333,
+      "mrr": 0.7,
+      "zero_result_rate": 0.2
+    },
+    "case_count": 30,
+    "cases": [
+      {
+        "case_id": "RAG-01-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 2,
+        "latency_ms": 0.43177599991395255,
+        "pair_id": "RAG-01",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-01-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.23997400012376602,
+        "pair_id": "RAG-01",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-02-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.26763400001073023,
+        "pair_id": "RAG-02",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-02-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.19885699975930038,
+        "pair_id": "RAG-02",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-03-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.23569499990117038,
+        "pair_id": "RAG-03",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-03-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.1845540000431356,
+        "pair_id": "RAG-03",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-04-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.22606899983657058,
+        "pair_id": "RAG-04",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-04-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.18159799992645276,
+        "pair_id": "RAG-04",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-05-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.22071000012147124,
+        "pair_id": "RAG-05",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-05-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.1610499998605519,
+        "pair_id": "RAG-05",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-06-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.17264200005229213,
+        "pair_id": "RAG-06",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-06-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.23423199991157162,
+        "pair_id": "RAG-06",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-07-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.2100510000673239,
+        "pair_id": "RAG-07",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-07-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.15396900016639847,
+        "pair_id": "RAG-07",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-08-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 2,
+        "latency_ms": 0.2080680001199653,
+        "pair_id": "RAG-08",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-08-EN:chunk:fed06ee97e3d9389ec1c226d",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-08-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.1731659999677504,
+        "pair_id": "RAG-08",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-08-AR:chunk:b5296973415c87f939b31e89"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-09-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 0.3444280000621802,
+        "pair_id": "RAG-09",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-09-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 0.30304299980343785,
+        "pair_id": "RAG-09",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-10-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 4,
+        "latency_ms": 0.32420200022897916,
+        "pair_id": "RAG-10",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-10-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 2,
+        "latency_ms": 0.3005879998454475,
+        "pair_id": "RAG-10",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-10-AR:chunk:78351049cc3b4f1171b038d7"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-11-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.44435599966163863,
+        "pair_id": "RAG-11",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-11-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.2859249998437008,
+        "pair_id": "RAG-11",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-12-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 0.36789999967368203,
+        "pair_id": "RAG-12",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-12-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 0.17833899983088486,
+        "pair_id": "RAG-12",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-13-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.24430000030406518,
+        "pair_id": "RAG-13",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-EN:chunk:3dcb9ce8991fd9af27a6a615",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-13-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 0.16220099996644421,
+        "pair_id": "RAG-13",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-14-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 0.2504699996279669,
+        "pair_id": "RAG-14",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-14-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 0.14132100022834493,
+        "pair_id": "RAG-14",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-15-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 5,
+        "latency_ms": 0.26051900022139307,
+        "pair_id": "RAG-15",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-15-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 0.14210199969966197,
+        "pair_id": "RAG-15",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [],
+        "top_k": 5
+      }
+    ],
+    "configuration": "B1_lexical",
+    "english": {
+      "case_count": 15,
+      "hit_rate": 0.8,
+      "language": "en",
+      "mean_latency_ms": 0.2805879999868921,
+      "mean_recall": 0.8,
+      "mrr": 0.63,
+      "zero_result_rate": 0.0
+    },
+    "overall_latency": {
+      "max_ms": 0.44435599966163863,
+      "mean_ms": 0.2416579666260077,
+      "median_ms": 0.2301504998740711,
+      "min_ms": 0.14132100022834493,
+      "p95_ms": 0.40303179980583065
+    }
+  },
+  "B2": {
+    "arabic": {
+      "case_count": 15,
+      "hit_rate": 1.0,
+      "language": "ar",
+      "mean_latency_ms": 174.85445473339496,
+      "mean_recall": 1.0,
+      "mrr": 0.9555555555555556,
+      "zero_result_rate": 0.0
+    },
+    "case_count": 30,
+    "cases": [
+      {
+        "case_id": "RAG-01-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 740.5351709999195,
+        "pair_id": "RAG-01",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-01-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 177.72669399982988,
+        "pair_id": "RAG-01",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-02-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 151.8527160001213,
+        "pair_id": "RAG-02",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-02-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 182.70194599972456,
+        "pair_id": "RAG-02",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-03-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 173.87065499997334,
+        "pair_id": "RAG-03",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-03-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 163.68934100000843,
+        "pair_id": "RAG-03",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-10-AR:chunk:78351049cc3b4f1171b038d7",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-04-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 161.6672949999156,
+        "pair_id": "RAG-04",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-04-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 138.34571300003518,
+        "pair_id": "RAG-04",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-05-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 166.3463100003355,
+        "pair_id": "RAG-05",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-09-EN:chunk:4e34120620834c4bf6213789"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-05-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 237.26019500008988,
+        "pair_id": "RAG-05",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-06-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 166.0060050003267,
+        "pair_id": "RAG-06",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-09-EN:chunk:4e34120620834c4bf6213789",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-06-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 170.39663500008828,
+        "pair_id": "RAG-06",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-07-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 172.26187799997206,
+        "pair_id": "RAG-07",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-07-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 158.7892229999852,
+        "pair_id": "RAG-07",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-10-AR:chunk:78351049cc3b4f1171b038d7",
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-08-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 187.0652389998213,
+        "pair_id": "RAG-08",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-08-EN:chunk:fed06ee97e3d9389ec1c226d",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-08-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 181.13259200026732,
+        "pair_id": "RAG-08",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-08-AR:chunk:b5296973415c87f939b31e89",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187",
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-09-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 223.56324799966387,
+        "pair_id": "RAG-09",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-09-EN:chunk:4e34120620834c4bf6213789",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-09-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 188.30070200010596,
+        "pair_id": "RAG-09",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-10-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 178.89168000010613,
+        "pair_id": "RAG-10",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9",
+          "BENCH-RAG-09-EN:chunk:4e34120620834c4bf6213789",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-10-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 173.7982950003243,
+        "pair_id": "RAG-10",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-10-AR:chunk:78351049cc3b4f1171b038d7",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-11-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 177.8678730001957,
+        "pair_id": "RAG-11",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-13-EN:chunk:3dcb9ce8991fd9af27a6a615",
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-11-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 179.51276600024357,
+        "pair_id": "RAG-11",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8",
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-12-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 182.75524299997414,
+        "pair_id": "RAG-12",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9",
+          "BENCH-RAG-13-EN:chunk:3dcb9ce8991fd9af27a6a615",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-14-EN:chunk:b5de33104c0fa6271518c174"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-12-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 183.73052700007975,
+        "pair_id": "RAG-12",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-13-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 167.16627899995729,
+        "pair_id": "RAG-13",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-EN:chunk:3dcb9ce8991fd9af27a6a615",
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-13-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 178.1147729998338,
+        "pair_id": "RAG-13",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-14-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 2,
+        "latency_ms": 167.26036700038094,
+        "pair_id": "RAG-14",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9",
+          "BENCH-RAG-14-EN:chunk:b5de33104c0fa6271518c174",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-14-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 3,
+        "latency_ms": 169.79169300020658,
+        "pair_id": "RAG-14",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-14-AR:chunk:5c175d701a0fcea989da7dba",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-15-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 147.14238099986687,
+        "pair_id": "RAG-15",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-13-EN:chunk:3dcb9ce8991fd9af27a6a615",
+          "BENCH-RAG-09-EN:chunk:4e34120620834c4bf6213789"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-15-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 139.5257260001017,
+        "pair_id": "RAG-15",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8"
+        ],
+        "top_k": 5
+      }
+    ],
+    "configuration": "B2_semantic",
+    "embedding_execution": {
+      "cache_hits": 0,
+      "cache_misses": 60,
+      "cached_vector_count": 60,
+      "document_api_batches": 1,
+      "query_api_calls": 30
+    },
+    "english": {
+      "case_count": 15,
+      "hit_rate": 1.0,
+      "language": "en",
+      "mean_latency_ms": 210.95015600003535,
+      "mean_recall": 1.0,
+      "mrr": 0.9666666666666667,
+      "zero_result_rate": 0.0
+    },
+    "overall_latency": {
+      "max_ms": 740.5351709999195,
+      "mean_ms": 192.90230536671515,
+      "median_ms": 173.8344750001488,
+      "min_ms": 138.34571300003518,
+      "p95_ms": 231.09656884989815
+    }
+  },
+  "B3": {
+    "arabic": {
+      "case_count": 15,
+      "hit_rate": 1.0,
+      "language": "ar",
+      "mean_latency_ms": 173.47850459994638,
+      "mean_recall": 1.0,
+      "mrr": 0.9111111111111111,
+      "zero_result_rate": 0.0
+    },
+    "case_count": 30,
+    "cases": [
+      {
+        "case_id": "RAG-01-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 165.65098799992484,
+        "pair_id": "RAG-01",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-01-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 192.99171600005138,
+        "pair_id": "RAG-01",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-02-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 169.20569200010505,
+        "pair_id": "RAG-02",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-02-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 176.8502830000216,
+        "pair_id": "RAG-02",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-03-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 214.41746599975886,
+        "pair_id": "RAG-03",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-03-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 169.28059399970152,
+        "pair_id": "RAG-03",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-10-AR:chunk:78351049cc3b4f1171b038d7",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-04-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 200.9801280000829,
+        "pair_id": "RAG-04",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-04-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 172.83624499987127,
+        "pair_id": "RAG-04",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-05-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 189.6100789999764,
+        "pair_id": "RAG-05",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-05-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 185.50862400024926,
+        "pair_id": "RAG-05",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-06-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 178.55470799986506,
+        "pair_id": "RAG-06",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-06-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 156.00604799965367,
+        "pair_id": "RAG-06",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-07-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 165.74766500025362,
+        "pair_id": "RAG-07",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-01-EN:chunk:7c995b5dd8f153571d69349b",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-07-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 183.2872969998789,
+        "pair_id": "RAG-07",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-10-AR:chunk:78351049cc3b4f1171b038d7",
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-04-AR:chunk:bb83fe11f4bd4e99349dca40"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-08-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 162.45722900021065,
+        "pair_id": "RAG-08",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-08-EN:chunk:fed06ee97e3d9389ec1c226d",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-08-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 150.69085899995116,
+        "pair_id": "RAG-08",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-08-AR:chunk:b5296973415c87f939b31e89",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187",
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-09-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 4,
+        "latency_ms": 192.09288899992316,
+        "pair_id": "RAG-09",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-09-EN:chunk:4e34120620834c4bf6213789",
+          "BENCH-RAG-03-EN:chunk:ecf236612a1081da39529d5b"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-09-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 3,
+        "latency_ms": 189.20690899994952,
+        "pair_id": "RAG-09",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-03-AR:chunk:f202ebb622bc1f4687b5988f",
+          "BENCH-RAG-05-AR:chunk:16979ddf6026e36e7e171f06"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-10-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 182.45885799979078,
+        "pair_id": "RAG-10",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-12-EN:chunk:00c3ef82370b78ece60dc4a9",
+          "BENCH-RAG-07-EN:chunk:e4cdc231181e1f8e72b15b36",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-10-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 172.8335849998075,
+        "pair_id": "RAG-10",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-10-AR:chunk:78351049cc3b4f1171b038d7",
+          "BENCH-RAG-01-AR:chunk:ef52c0b22883ce3a10645e4f",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-06-AR:chunk:518c1ceef2ac5959c4b6fd75",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-11-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 180.94908900002338,
+        "pair_id": "RAG-11",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-02-EN:chunk:0ba4c8c8423544eed415b628"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-11-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 183.54657400004726,
+        "pair_id": "RAG-11",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-02-AR:chunk:dc078b1fd1b562ce75410c4c",
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8",
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-12-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 171.03406300020652,
+        "pair_id": "RAG-12",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-12-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 161.72224999991158,
+        "pair_id": "RAG-12",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-13-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 158.02772699998968,
+        "pair_id": "RAG-13",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-EN:chunk:3dcb9ce8991fd9af27a6a615",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-13-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 155.2599999999984,
+        "pair_id": "RAG-13",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-14-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": null,
+        "latency_ms": 168.0269200001021,
+        "pair_id": "RAG-14",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 0,
+        "returned_chunk_ids": [
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10",
+          "BENCH-RAG-05-EN:chunk:00e8210eb9b4227fa69981ec"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-14-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 3,
+        "latency_ms": 166.49652999967657,
+        "pair_id": "RAG-14",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-14-AR:chunk:5c175d701a0fcea989da7dba",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-07-AR:chunk:20e53006e66eed7f3f660187"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-15-EN",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 163.801469000191,
+        "pair_id": "RAG-15",
+        "query_language": "en",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-15-EN:chunk:14983d84d2309ebf3fda3d29",
+          "BENCH-RAG-06-EN:chunk:9bc8e31dc2fcbeafb22668e5",
+          "BENCH-RAG-10-EN:chunk:85ca72f5ddd89355b28f95bd",
+          "BENCH-RAG-11-EN:chunk:ae23ca869244ce5f636d42cb",
+          "BENCH-RAG-04-EN:chunk:c1de56c1f4f88926c8eebd10"
+        ],
+        "top_k": 5
+      },
+      {
+        "case_id": "RAG-15-AR",
+        "cross_lingual": false,
+        "first_relevant_rank": 1,
+        "latency_ms": 185.66005500042593,
+        "pair_id": "RAG-15",
+        "query_language": "ar",
+        "relevant_count": 1,
+        "retrieved_relevant_count": 1,
+        "returned_chunk_ids": [
+          "BENCH-RAG-15-AR:chunk:565bb739aa98903921157049",
+          "BENCH-RAG-13-AR:chunk:8494f40ac8a961d167198d91",
+          "BENCH-RAG-11-AR:chunk:6537511805ca573f88f0b0ae",
+          "BENCH-RAG-09-AR:chunk:545c151e30e6667d0db76426",
+          "BENCH-RAG-12-AR:chunk:f87d6de7e4556d3f64a3b8c8"
+        ],
+        "top_k": 5
+      }
+    ],
+    "configuration": "B3_govba_gar_hybrid",
+    "embedding_execution": {
+      "cache_hits": 0,
+      "cache_misses": 60,
+      "cached_vector_count": 60,
+      "document_api_batches": 1,
+      "query_api_calls": 30
+    },
+    "english": {
+      "case_count": 15,
+      "hit_rate": 0.8666666666666667,
+      "language": "en",
+      "mean_latency_ms": 177.53433133336026,
+      "mean_recall": 0.8666666666666667,
+      "mrr": 0.8166666666666667,
+      "zero_result_rate": 0.0
+    },
+    "overall_latency": {
+      "max_ms": 214.41746599975886,
+      "mean_ms": 175.50641796665332,
+      "median_ms": 172.83491499983938,
+      "min_ms": 150.69085899995116,
+      "p95_ms": 197.3853426000687
+    }
+  },
+  "benchmark_version": "govba-gar-retrieval-comparison-v1",
+  "case_count": 30,
+  "cross_lingual": false,
+  "embedding_model": "text-embedding-3-small",
+  "hybrid_weights": {
+    "Lexical": 1.0,
+    "Semantic": 1.0
+  },
+  "language_balance": {
+    "arabic": 15,
+    "english": 15
+  },
+  "source_manifest": "govba-gar-benchmark-v1"
+}
