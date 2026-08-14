@@ -1,0 +1,2270 @@
+{
+  "case_count": 120,
+  "cases": [
+    {
+      "case_id": "RAG-01-EN",
+      "evidence": "Applicants renewing a licence must provide identification and proof of payment.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-01",
+      "query": "What is required for licence renewal?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-01-AR",
+      "evidence": "يجب على المتقدمين لتجديد الترخيص تقديم إثبات الهوية وإثبات الدفع.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-01",
+      "query": "ما المتطلبات اللازمة لـ تجديد الترخيص؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-02-EN",
+      "evidence": "A building permit application requires the approved engineering drawings.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-02",
+      "query": "What is required for building permit?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-02-AR",
+      "evidence": "يتطلب طلب رخصة البناء المخططات الهندسية المعتمدة.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-02",
+      "query": "ما المتطلبات اللازمة لـ رخصة البناء؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-03-EN",
+      "evidence": "Business registration requires identification and the approved registration application.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-03",
+      "query": "What is required for business registration?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-03-AR",
+      "evidence": "يتطلب تسجيل المنشأة إثبات الهوية وطلب التسجيل المعتمد.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-03",
+      "query": "ما المتطلبات اللازمة لـ تسجيل المنشأة؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-04-EN",
+      "evidence": "Vehicle licensing requires valid insurance and the required inspection record.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-04",
+      "query": "What is required for vehicle licensing?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-04-AR",
+      "evidence": "يتطلب ترخيص المركبة تأميناً سارياً وسجل الفحص المطلوب.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-04",
+      "query": "ما المتطلبات اللازمة لـ ترخيص المركبة؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-05-EN",
+      "evidence": "Passport renewal requires the existing passport and the prescribed application.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-05",
+      "query": "What is required for passport renewal?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-05-AR",
+      "evidence": "يتطلب تجديد جواز السفر جواز السفر الحالي والطلب المقرر.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-05",
+      "query": "ما المتطلبات اللازمة لـ تجديد جواز السفر؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-06-EN",
+      "evidence": "Eligibility for social assistance is assessed using the approved applicant information.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-06",
+      "query": "What is required for social assistance?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-06-AR",
+      "evidence": "يتم تقييم أهلية المساعدة الاجتماعية باستخدام بيانات مقدم الطلب المعتمدة.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-06",
+      "query": "ما المتطلبات اللازمة لـ المساعدة الاجتماعية؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-07-EN",
+      "evidence": "A tax-clearance request is processed after verifying the applicant's tax record.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-07",
+      "query": "What is required for tax clearance?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-07-AR",
+      "evidence": "تتم معالجة طلب براءة الذمة الضريبية بعد التحقق من السجل الضريبي لمقدم الطلب.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-07",
+      "query": "ما المتطلبات اللازمة لـ براءة الذمة الضريبية؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-08-EN",
+      "evidence": "Municipal complaints are registered through the designated complaint channel.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-08",
+      "query": "What is required for municipal complaint?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-08-AR",
+      "evidence": "تسجل الشكاوى البلدية من خلال قناة الشكاوى المخصصة.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-08",
+      "query": "ما المتطلبات اللازمة لـ الشكوى البلدية؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-09-EN",
+      "evidence": "Scholarship applications require the specified academic supporting documents.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-09",
+      "query": "What is required for scholarship application?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-09-AR",
+      "evidence": "تتطلب طلبات المنح الوثائق الأكاديمية الداعمة المحددة.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-09",
+      "query": "ما المتطلبات اللازمة لـ طلب المنحة؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-10-EN",
+      "evidence": "Procurement submissions must include the documents specified in the tender notice.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-10",
+      "query": "What is required for procurement submission?",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-10-AR",
+      "evidence": "يجب أن تتضمن العطاءات الوثائق المحددة في إعلان العطاء.",
+      "expected": {
+        "answerability": "ready",
+        "temporal_state": "current",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-10",
+      "query": "ما المتطلبات اللازمة لـ تقديم العطاء؟",
+      "stress": false
+    },
+    {
+      "case_id": "RAG-11-EN",
+      "evidence": "The earlier circular describes the former application procedure.",
+      "expected": {
+        "answerability": "review",
+        "temporal_state": "superseded",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-11",
+      "query": "Determine the applicable rule for superseded circular.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-11-AR",
+      "evidence": "يصف التعميم السابق إجراءات التقديم القديمة.",
+      "expected": {
+        "answerability": "review",
+        "temporal_state": "superseded",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-11",
+      "query": "حدد القاعدة المطبقة بشأن التعميم الملغى.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-12-EN",
+      "evidence": "Two official instructions provide inconsistent submission deadlines.",
+      "expected": {
+        "answerability": "review",
+        "temporal_state": "conflicting",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-12",
+      "query": "Determine the applicable rule for conflicting instructions.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-12-AR",
+      "evidence": "تتضمن تعليمات رسمية متعارضة مواعيد مختلفة للتقديم.",
+      "expected": {
+        "answerability": "review",
+        "temporal_state": "conflicting",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-12",
+      "query": "حدد القاعدة المطبقة بشأن التعليمات المتعارضة.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-13-EN",
+      "evidence": "The document states a procedure but provides no effective date.",
+      "expected": {
+        "answerability": "abstain",
+        "temporal_state": "insufficient",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-13",
+      "query": "Determine the applicable rule for missing effective date.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-13-AR",
+      "evidence": "تحدد الوثيقة إجراءً ولكنها لا تتضمن تاريخ نفاذ.",
+      "expected": {
+        "answerability": "abstain",
+        "temporal_state": "insufficient",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-13",
+      "query": "حدد القاعدة المطبقة بشأن تاريخ النفاذ المفقود.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-14-EN",
+      "evidence": "A copied webpage reproduces government guidance without verified provenance.",
+      "expected": {
+        "answerability": "abstain",
+        "temporal_state": "untrusted",
+        "trusted": false
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-14",
+      "query": "Determine the applicable rule for untrusted mirror.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-14-AR",
+      "evidence": "تعيد صفحة منسوخة نشر إرشادات حكومية دون مصدر موثق.",
+      "expected": {
+        "answerability": "abstain",
+        "temporal_state": "untrusted",
+        "trusted": false
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-14",
+      "query": "حدد القاعدة المطبقة بشأن المصدر غير الموثوق.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-15-EN",
+      "evidence": "The available document does not specify the requested eligibility condition.",
+      "expected": {
+        "answerability": "abstain",
+        "temporal_state": "insufficient",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "en",
+      "pair_id": "RAG-15",
+      "query": "Determine the applicable rule for insufficient evidence.",
+      "stress": true
+    },
+    {
+      "case_id": "RAG-15-AR",
+      "evidence": "لا تحدد الوثيقة المتاحة شرط الأهلية المطلوب.",
+      "expected": {
+        "answerability": "abstain",
+        "temporal_state": "insufficient",
+        "trusted": true
+      },
+      "family": "rag",
+      "language": "ar",
+      "pair_id": "RAG-15",
+      "query": "حدد القاعدة المطبقة بشأن الأدلة غير الكافية.",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-01-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Employees must submit the form."
+      ],
+      "old": [
+        "Employees may submit the form."
+      ],
+      "pair_id": "CHANGE-01",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-01-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يجب على الموظفين تقديم النموذج."
+      ],
+      "old": [
+        "يجوز للموظفين تقديم النموذج."
+      ],
+      "pair_id": "CHANGE-01",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-02-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Applications must be submitted within three days."
+      ],
+      "old": [
+        "Applications must be submitted within five days."
+      ],
+      "pair_id": "CHANGE-02",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-02-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يجب تقديم الطلبات خلال ثلاثة أيام."
+      ],
+      "old": [
+        "يجب تقديم الطلبات خلال خمسة أيام."
+      ],
+      "pair_id": "CHANGE-02",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-03-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Applicants must submit documents through the portal."
+      ],
+      "old": [
+        "Applicants may submit documents by email."
+      ],
+      "pair_id": "CHANGE-03",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-03-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يجب على المتقدمين تقديم الوثائق عبر البوابة."
+      ],
+      "old": [
+        "يجوز للمتقدمين إرسال الوثائق بالبريد الإلكتروني."
+      ],
+      "pair_id": "CHANGE-03",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-04-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "HIGH",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Manager approval is required."
+      ],
+      "old": [
+        "Manager approval is optional."
+      ],
+      "pair_id": "CHANGE-04",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-04-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "HIGH",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "موافقة المدير مطلوبة."
+      ],
+      "old": [
+        "موافقة المدير اختيارية."
+      ],
+      "pair_id": "CHANGE-04",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-05-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "The department must review the request."
+      ],
+      "old": [
+        "The department should review the request."
+      ],
+      "pair_id": "CHANGE-05",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-05-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يجب على الدائرة مراجعة الطلب."
+      ],
+      "old": [
+        "ينبغي للدائرة مراجعة الطلب."
+      ],
+      "pair_id": "CHANGE-05",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-06-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Records are retained for five years."
+      ],
+      "old": [
+        "Records are retained for three years."
+      ],
+      "pair_id": "CHANGE-06",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-06-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "تحفظ السجلات لمدة خمس سنوات."
+      ],
+      "old": [
+        "تحفظ السجلات لمدة ثلاث سنوات."
+      ],
+      "pair_id": "CHANGE-06",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-07-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Payment must be completed electronically."
+      ],
+      "old": [
+        "Payment may be completed manually."
+      ],
+      "pair_id": "CHANGE-07",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-07-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يجب إتمام الدفع إلكترونياً."
+      ],
+      "old": [
+        "يجوز إتمام الدفع يدوياً."
+      ],
+      "pair_id": "CHANGE-07",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-08-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "LOW",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "The report is submitted monthly."
+      ],
+      "old": [
+        "The report is submitted quarterly."
+      ],
+      "pair_id": "CHANGE-08",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-08-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "LOW",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يقدم التقرير شهرياً."
+      ],
+      "old": [
+        "يقدم التقرير كل ثلاثة أشهر."
+      ],
+      "pair_id": "CHANGE-08",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-09-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Supporting documents are mandatory."
+      ],
+      "old": [
+        "Supporting documents are recommended."
+      ],
+      "pair_id": "CHANGE-09",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-09-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "الوثائق الداعمة إلزامية."
+      ],
+      "old": [
+        "يوصى بإرفاق الوثائق الداعمة."
+      ],
+      "pair_id": "CHANGE-09",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-10-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "The request must be reviewed through the approved platform."
+      ],
+      "old": [
+        "The request may be reviewed remotely."
+      ],
+      "pair_id": "CHANGE-10",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-10-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يجب مراجعة الطلب من خلال المنصة المعتمدة."
+      ],
+      "old": [
+        "يجوز مراجعة الطلب عن بعد."
+      ],
+      "pair_id": "CHANGE-10",
+      "stress": false
+    },
+    {
+      "case_id": "CHANGE-11-EN",
+      "expected": {
+        "added": 1,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 0,
+        "removed": 0,
+        "unchanged": 1
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Applications are submitted online.",
+        "Applicants must attach identification."
+      ],
+      "old": [
+        "Applications are submitted online."
+      ],
+      "pair_id": "CHANGE-11",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-11-AR",
+      "expected": {
+        "added": 1,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 0,
+        "removed": 0,
+        "unchanged": 1
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "تقدم الطلبات إلكترونياً.",
+        "يجب على المتقدم إرفاق إثبات الهوية."
+      ],
+      "old": [
+        "تقدم الطلبات إلكترونياً."
+      ],
+      "pair_id": "CHANGE-11",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-12-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 0,
+        "removed": 1,
+        "unchanged": 1
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Applications are submitted online."
+      ],
+      "old": [
+        "Applications are submitted online.",
+        "A paper copy is also required."
+      ],
+      "pair_id": "CHANGE-12",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-12-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "MEDIUM",
+        "match": "ALLOW",
+        "modified": 0,
+        "removed": 1,
+        "unchanged": 1
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "تقدم الطلبات إلكترونياً."
+      ],
+      "old": [
+        "تقدم الطلبات إلكترونياً.",
+        "تطلب نسخة ورقية أيضاً."
+      ],
+      "pair_id": "CHANGE-12",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-13-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "INFORMATIONAL",
+        "match": "ALLOW",
+        "modified": 0,
+        "removed": 0,
+        "unchanged": 1
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "The approved procedure remains in force."
+      ],
+      "old": [
+        "The approved procedure remains in force."
+      ],
+      "pair_id": "CHANGE-13",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-13-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "INFORMATIONAL",
+        "match": "ALLOW",
+        "modified": 0,
+        "removed": 0,
+        "unchanged": 1
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يبقى الإجراء المعتمد نافذاً."
+      ],
+      "old": [
+        "يبقى الإجراء المعتمد نافذاً."
+      ],
+      "pair_id": "CHANGE-13",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-14-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "REVIEW",
+        "impact": "CRITICAL",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "Sensitive records must be encrypted at rest."
+      ],
+      "old": [
+        "Sensitive records may be stored without encryption."
+      ],
+      "pair_id": "CHANGE-14",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-14-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "REVIEW",
+        "impact": "CRITICAL",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "يجب تشفير السجلات الحساسة أثناء التخزين."
+      ],
+      "old": [
+        "يجوز حفظ السجلات الحساسة دون تشفير."
+      ],
+      "pair_id": "CHANGE-14",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-15-EN",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "HIGH",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "en",
+      "new": [
+        "The deadline is 15 September."
+      ],
+      "old": [
+        "The deadline is 30 September."
+      ],
+      "pair_id": "CHANGE-15",
+      "stress": true
+    },
+    {
+      "case_id": "CHANGE-15-AR",
+      "expected": {
+        "added": 0,
+        "briefing": "READY",
+        "impact": "HIGH",
+        "match": "ALLOW",
+        "modified": 1,
+        "removed": 0,
+        "unchanged": 0
+      },
+      "family": "change",
+      "language": "ar",
+      "new": [
+        "الموعد النهائي هو 15 أيلول."
+      ],
+      "old": [
+        "الموعد النهائي هو 30 أيلول."
+      ],
+      "pair_id": "CHANGE-15",
+      "stress": true
+    },
+    {
+      "case_id": "CORRESPONDENCE-01-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "REQUEST",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-01",
+      "stress": false,
+      "text": "Please review the attached report."
+    },
+    {
+      "case_id": "CORRESPONDENCE-01-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "REQUEST",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-01",
+      "stress": false,
+      "text": "يرجى مراجعة التقرير المرفق."
+    },
+    {
+      "case_id": "CORRESPONDENCE-02-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "REQUEST",
+        "priority": "URGENT"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-02",
+      "stress": false,
+      "text": "Urgent: please submit the report."
+    },
+    {
+      "case_id": "CORRESPONDENCE-02-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "REQUEST",
+        "priority": "URGENT"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-02",
+      "stress": false,
+      "text": "عاجل: يرجى تقديم التقرير."
+    },
+    {
+      "case_id": "CORRESPONDENCE-03-EN",
+      "expected": {
+        "actions": 0,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "INFORMATION",
+        "priority": "ROUTINE"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-03",
+      "stress": false,
+      "text": "For your information, the report has been issued."
+    },
+    {
+      "case_id": "CORRESPONDENCE-03-AR",
+      "expected": {
+        "actions": 0,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "INFORMATION",
+        "priority": "ROUTINE"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-03",
+      "stress": false,
+      "text": "للعلم، تم إصدار التقرير."
+    },
+    {
+      "case_id": "CORRESPONDENCE-04-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "APPROVAL",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-04",
+      "stress": false,
+      "text": "Please approve the proposed service procedure."
+    },
+    {
+      "case_id": "CORRESPONDENCE-04-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "APPROVAL",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-04",
+      "stress": false,
+      "text": "يرجى الموافقة على إجراء الخدمة المقترح."
+    },
+    {
+      "case_id": "CORRESPONDENCE-05-EN",
+      "expected": {
+        "actions": 0,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "DECISION",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-05",
+      "stress": false,
+      "text": "The committee has decided to approve the request."
+    },
+    {
+      "case_id": "CORRESPONDENCE-05-AR",
+      "expected": {
+        "actions": 0,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "DECISION",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-05",
+      "stress": false,
+      "text": "قررت اللجنة الموافقة على الطلب."
+    },
+    {
+      "case_id": "CORRESPONDENCE-06-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ESCALATION",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-06",
+      "stress": false,
+      "text": "Please escalate this issue to senior management."
+    },
+    {
+      "case_id": "CORRESPONDENCE-06-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ESCALATION",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-06",
+      "stress": false,
+      "text": "يرجى تصعيد هذه المسألة إلى الإدارة العليا."
+    },
+    {
+      "case_id": "CORRESPONDENCE-07-EN",
+      "expected": {
+        "actions": 0,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "COMPLAINT",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-07",
+      "stress": false,
+      "text": "I wish to complain about the delayed service."
+    },
+    {
+      "case_id": "CORRESPONDENCE-07-AR",
+      "expected": {
+        "actions": 0,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "COMPLAINT",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-07",
+      "stress": false,
+      "text": "أرغب في تقديم شكوى بشأن تأخر الخدمة."
+    },
+    {
+      "case_id": "CORRESPONDENCE-08-EN",
+      "expected": {
+        "actions": 0,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "NOTIFICATION",
+        "priority": "ROUTINE"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-08",
+      "stress": false,
+      "text": "Please note that the portal will be unavailable tomorrow."
+    },
+    {
+      "case_id": "CORRESPONDENCE-08-AR",
+      "expected": {
+        "actions": 0,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "NOTIFICATION",
+        "priority": "ROUTINE"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-08",
+      "stress": false,
+      "text": "يرجى العلم أن البوابة ستكون غير متاحة غداً."
+    },
+    {
+      "case_id": "CORRESPONDENCE-09-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ACTION_REQUIRED",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-09",
+      "stress": false,
+      "text": "You must submit the signed form."
+    },
+    {
+      "case_id": "CORRESPONDENCE-09-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ACTION_REQUIRED",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-09",
+      "stress": false,
+      "text": "يجب عليك تقديم النموذج الموقع."
+    },
+    {
+      "case_id": "CORRESPONDENCE-10-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "REQUEST",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-10",
+      "stress": false,
+      "text": "Please provide your comments on the draft."
+    },
+    {
+      "case_id": "CORRESPONDENCE-10-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "REQUEST",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-10",
+      "stress": false,
+      "text": "يرجى تزويدنا بملاحظاتكم على المسودة."
+    },
+    {
+      "case_id": "CORRESPONDENCE-11-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ACTION_REQUIRED",
+        "priority": "URGENT"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-11",
+      "stress": true,
+      "text": "Immediate action is required to resolve the security issue."
+    },
+    {
+      "case_id": "CORRESPONDENCE-11-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ACTION_REQUIRED",
+        "priority": "URGENT"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-11",
+      "stress": true,
+      "text": "يلزم اتخاذ إجراء فوري لمعالجة المسألة الأمنية."
+    },
+    {
+      "case_id": "CORRESPONDENCE-12-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 1,
+        "deadlines": 0,
+        "intent": "INFORMATION",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-12",
+      "stress": true,
+      "text": "We will submit the final report."
+    },
+    {
+      "case_id": "CORRESPONDENCE-12-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "READY",
+        "commitments": 1,
+        "deadlines": 0,
+        "intent": "INFORMATION",
+        "priority": "NORMAL"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-12",
+      "stress": true,
+      "text": "سنقدم التقرير النهائي."
+    },
+    {
+      "case_id": "CORRESPONDENCE-13-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 1,
+        "intent": "REQUEST",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-13",
+      "stress": true,
+      "text": "Please submit the response by tomorrow."
+    },
+    {
+      "case_id": "CORRESPONDENCE-13-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 1,
+        "intent": "REQUEST",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-13",
+      "stress": true,
+      "text": "يرجى تقديم الرد بحلول الغد."
+    },
+    {
+      "case_id": "CORRESPONDENCE-14-EN",
+      "expected": {
+        "actions": 0,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "COMPLAINT",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-14",
+      "stress": true,
+      "text": "The citizen alleges repeated failure to process the request."
+    },
+    {
+      "case_id": "CORRESPONDENCE-14-AR",
+      "expected": {
+        "actions": 0,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "COMPLAINT",
+        "priority": "HIGH"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-14",
+      "stress": true,
+      "text": "يشكو المواطن من تكرار عدم معالجة الطلب."
+    },
+    {
+      "case_id": "CORRESPONDENCE-15-EN",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ESCALATION",
+        "priority": "URGENT"
+      },
+      "family": "correspondence",
+      "language": "en",
+      "pair_id": "CORRESPONDENCE-15",
+      "stress": true,
+      "text": "Escalate immediately: the service interruption affects all users."
+    },
+    {
+      "case_id": "CORRESPONDENCE-15-AR",
+      "expected": {
+        "actions": 1,
+        "briefing": "REVIEW",
+        "commitments": 0,
+        "deadlines": 0,
+        "intent": "ESCALATION",
+        "priority": "URGENT"
+      },
+      "family": "correspondence",
+      "language": "ar",
+      "pair_id": "CORRESPONDENCE-15",
+      "stress": true,
+      "text": "صعّد الموضوع فوراً: انقطاع الخدمة يؤثر على جميع المستخدمين."
+    },
+    {
+      "case_id": "REQUIREMENTS-01-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-01",
+      "stress": false,
+      "text": "The system must allow users to submit requests."
+    },
+    {
+      "case_id": "REQUIREMENTS-01-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-01",
+      "stress": false,
+      "text": "يجب أن يسمح النظام للمستخدمين بتقديم الطلبات."
+    },
+    {
+      "case_id": "REQUIREMENTS-02-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "SECURITY"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-02",
+      "stress": false,
+      "text": "The system must use encryption."
+    },
+    {
+      "case_id": "REQUIREMENTS-02-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "SECURITY"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-02",
+      "stress": false,
+      "text": "يجب أن يستخدم النظام التشفير."
+    },
+    {
+      "case_id": "REQUIREMENTS-03-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "REPORTING"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-03",
+      "stress": false,
+      "text": "The system should generate monthly reports."
+    },
+    {
+      "case_id": "REQUIREMENTS-03-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "REPORTING"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-03",
+      "stress": false,
+      "text": "ينبغي أن ينشئ النظام تقارير شهرية."
+    },
+    {
+      "case_id": "REQUIREMENTS-04-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "DATA"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-04",
+      "stress": false,
+      "text": "The system must store the applicant reference number."
+    },
+    {
+      "case_id": "REQUIREMENTS-04-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "DATA"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-04",
+      "stress": false,
+      "text": "يجب أن يخزن النظام الرقم المرجعي لمقدم الطلب."
+    },
+    {
+      "case_id": "REQUIREMENTS-05-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "INTEGRATION"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-05",
+      "stress": false,
+      "text": "The system must integrate with the payment API."
+    },
+    {
+      "case_id": "REQUIREMENTS-05-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "INTEGRATION"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-05",
+      "stress": false,
+      "text": "يجب أن يتكامل النظام مع واجهة برمجة تطبيقات الدفع."
+    },
+    {
+      "case_id": "REQUIREMENTS-06-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "COMPLIANCE"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-06",
+      "stress": false,
+      "text": "The solution must comply with the applicable policy."
+    },
+    {
+      "case_id": "REQUIREMENTS-06-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "COMPLIANCE"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-06",
+      "stress": false,
+      "text": "يجب أن يمتثل الحل للسياسة المعمول بها."
+    },
+    {
+      "case_id": "REQUIREMENTS-07-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "BUSINESS"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-07",
+      "stress": false,
+      "text": "The service must reduce manual processing."
+    },
+    {
+      "case_id": "REQUIREMENTS-07-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "BUSINESS"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-07",
+      "stress": false,
+      "text": "يجب أن تقلل الخدمة المعالجة اليدوية."
+    },
+    {
+      "case_id": "REQUIREMENTS-08-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "NON_FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-08",
+      "stress": false,
+      "text": "The system should respond within two seconds."
+    },
+    {
+      "case_id": "REQUIREMENTS-08-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "NON_FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-08",
+      "stress": false,
+      "text": "ينبغي أن يستجيب النظام خلال ثانيتين."
+    },
+    {
+      "case_id": "REQUIREMENTS-09-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "COULD"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-09",
+      "stress": false,
+      "text": "The system could provide status notifications."
+    },
+    {
+      "case_id": "REQUIREMENTS-09-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "COULD"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-09",
+      "stress": false,
+      "text": "يمكن للنظام توفير إشعارات عن حالة الطلب."
+    },
+    {
+      "case_id": "REQUIREMENTS-10-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "SECURITY"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-10",
+      "stress": false,
+      "text": "The system must provide an audit record."
+    },
+    {
+      "case_id": "REQUIREMENTS-10-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "SECURITY"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-10",
+      "stress": false,
+      "text": "يجب أن يوفر النظام سجل تدقيق."
+    },
+    {
+      "case_id": "REQUIREMENTS-11-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "REVIEW"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-11",
+      "stress": true,
+      "text": "The system should provide a user-friendly interface."
+    },
+    {
+      "case_id": "REQUIREMENTS-11-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "REVIEW"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-11",
+      "stress": true,
+      "text": "ينبغي أن يوفر النظام واجهة سهلة الاستخدام."
+    },
+    {
+      "case_id": "REQUIREMENTS-12-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "REWRITE"
+        ],
+        "types": [
+          "NON_FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-12",
+      "stress": true,
+      "text": "The system must support TBD response time."
+    },
+    {
+      "case_id": "REQUIREMENTS-12-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "REWRITE"
+        ],
+        "types": [
+          "NON_FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-12",
+      "stress": true,
+      "text": "يجب أن يدعم النظام زمن استجابة يحدد لاحقاً."
+    },
+    {
+      "case_id": "REQUIREMENTS-13-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "REWRITE"
+        ],
+        "types": [
+          "NON_FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-13",
+      "stress": true,
+      "text": "The system should be fast."
+    },
+    {
+      "case_id": "REQUIREMENTS-13-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "SHOULD"
+        ],
+        "quality": [
+          "REWRITE"
+        ],
+        "types": [
+          "NON_FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-13",
+      "stress": true,
+      "text": "ينبغي أن يكون النظام سريعاً."
+    },
+    {
+      "case_id": "REQUIREMENTS-14-EN",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "REVIEW"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-14",
+      "stress": true,
+      "text": "The system must provide appropriate notifications."
+    },
+    {
+      "case_id": "REQUIREMENTS-14-AR",
+      "expected": {
+        "acceptance": [
+          "DRAFT_REVIEW"
+        ],
+        "decision": "REVIEW",
+        "priorities": [
+          "MUST"
+        ],
+        "quality": [
+          "REVIEW"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-14",
+      "stress": true,
+      "text": "يجب أن يوفر النظام إشعارات مناسبة."
+    },
+    {
+      "case_id": "REQUIREMENTS-15-EN",
+      "expected": {
+        "acceptance": [
+          "NOT_APPLICABLE"
+        ],
+        "decision": "READY",
+        "priorities": [
+          "WONT"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "en",
+      "pair_id": "REQUIREMENTS-15",
+      "stress": true,
+      "text": "The system will not provide paper-based submission."
+    },
+    {
+      "case_id": "REQUIREMENTS-15-AR",
+      "expected": {
+        "acceptance": [
+          "NOT_APPLICABLE"
+        ],
+        "decision": "READY",
+        "priorities": [
+          "WONT"
+        ],
+        "quality": [
+          "PASS"
+        ],
+        "types": [
+          "FUNCTIONAL"
+        ]
+      },
+      "family": "requirements",
+      "language": "ar",
+      "pair_id": "REQUIREMENTS-15",
+      "stress": true,
+      "text": "لن يوفر النظام التقديم الورقي."
+    }
+  ],
+  "family_counts": {
+    "change": 30,
+    "correspondence": 30,
+    "rag": 30,
+    "requirements": 30
+  },
+  "language_counts": {
+    "ar": 60,
+    "en": 60
+  },
+  "version": "govba-gar-benchmark-v1"
+}

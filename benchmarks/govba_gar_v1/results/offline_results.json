@@ -1,0 +1,62 @@
+{
+  "benchmark_version": "govba-gar-benchmark-v1",
+  "case_count": 120,
+  "change": {
+    "briefing_accuracy": 0.9333333333333333,
+    "case_count": 30,
+    "change_count_accuracy": 0.9333333333333333,
+    "downstream_case_count": 30,
+    "end_to_end_success_rate": 0.5666666666666667,
+    "impact_accuracy": 0.6333333333333333,
+    "mean_latency_ms": 0.2709319666943581,
+    "version": "govba-change-intelligence-evaluation-v1",
+    "version_match_accuracy": 1.0
+  },
+  "correspondence": {
+    "action_count_accuracy": 0.7,
+    "briefing_accuracy": 0.6333333333333333,
+    "case_count": 30,
+    "commitment_count_accuracy": 0.9666666666666667,
+    "deadline_count_accuracy": 0.9666666666666667,
+    "end_to_end_success_rate": 0.4,
+    "intent_accuracy": 0.7333333333333333,
+    "mean_latency_ms": 0.1794447000368867,
+    "priority_accuracy": 0.7,
+    "version": "govba-correspondence-evaluation-v1"
+  },
+  "offline_total_latency_ms": 31.19048299959104,
+  "rag_lexical": {
+    "arabic": {
+      "case_count": 15,
+      "hit_rate": 0.7333333333333333,
+      "language": "ar",
+      "mean_latency_ms": 0.1507894000800055,
+      "mean_recall": 0.7333333333333333,
+      "mrr": 0.7,
+      "zero_result_rate": 0.2
+    },
+    "case_count": 30,
+    "configuration": "B1_lexical_baseline",
+    "english": {
+      "case_count": 15,
+      "hit_rate": 0.8,
+      "language": "en",
+      "mean_latency_ms": 0.20560980007455024,
+      "mean_recall": 0.8,
+      "mrr": 0.63,
+      "zero_result_rate": 0.0
+    }
+  },
+  "requirements": {
+    "acceptance_sequence_accuracy": 0.9333333333333333,
+    "case_count": 30,
+    "end_to_end_success_rate": 0.5666666666666667,
+    "governed_decision_accuracy": 0.9333333333333333,
+    "mean_latency_ms": 0.1694589333510521,
+    "priority_sequence_accuracy": 0.9333333333333333,
+    "quality_sequence_accuracy": 0.8666666666666667,
+    "requirement_count_accuracy": 0.9333333333333333,
+    "type_sequence_accuracy": 0.5666666666666667,
+    "version": "govba-requirements-evaluation-v1"
+  }
+}
