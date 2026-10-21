@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use GovBA-GAR in your research or work, please cite this software and identify the version used. Citation is requested; it does not add conditions to the MIT License."
+type: software
+title: "GovBA-GAR: Governance-Aware Agentic Retrieval for Public-Sector Knowledge Work"
+version: 3.0.0
+date-released: 2026-10-21
+authors:
+  - family-names: "Abaddi"
+    given-names: "Samer"
+    orcid: "https://orcid.org/0000-0003-4612-7384"
+license: MIT
+repository-code: "https://github.com/SamerAbaddi/govba-assistant"
+url: "https://github.com/SamerAbaddi/govba-assistant/tree/v3-governance-rag"
+abstract: "Version 3 of a bilingual research prototype for governance-aware public-sector knowledge work, including retrieval, evidence provenance, policy-change analysis, correspondence and requirements support. The related research paper is in preparation. Archiving does not establish independently validated performance."
+keywords:
+  - retrieval-augmented generation
+  - governance
+  - public sector
+  - business analysis
